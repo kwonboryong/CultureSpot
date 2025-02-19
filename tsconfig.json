@@ -21,7 +21,11 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@shadcn/ui": ["node_modules/@shadcn/ui/dist/index.js"]  
+    }
   },
   "include": [
     "next-env.d.ts",
