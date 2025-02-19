@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Next.js 빌드 파일
+.next/
+out/
+.next/cache/
+
+

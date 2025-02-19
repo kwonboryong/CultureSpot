@@ -1,7 +1,37 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "jsx": "preserve", // react 18+ JSX 사용 설정
+    "allowJs": true, // JS 파일도 포함하도록 설정 (필요한 경우)
+    "noEmit": true, // 출력 파일을 생성하지 않도록 설정 (빌드 시 중요)
+    "strict": true, // strict 모드 타입 검사 활성화
+    "moduleResolution": "node", // 모듈 해석 방식을 node 스타일로 설정
+    "skipLibCheck": true // 라이브러리 타입 체크를 건너뛰기
+    ,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "incremental": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ], // 프로젝트 내 모든 ts, tsx 파일을 포함
+  "exclude": [
+    "node_modules",
+    ".next",
+    "out"
+  ] // 빌드 관련 폴더 제외
 }
