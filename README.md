@@ -1,50 +1,26 @@
-# React + TypeScript + Vite
+## Culture Spot 🎟️
+- 문화 행사 정보 제공 및 커뮤니티 기반 소통 플랫폼
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<br/>
 
-Currently, two official plugins are available:
+### 프로젝트 소개
+CultureSpot은 사용자에게 다양한 문화 행사 정보를 제공하고, 관심 있는 이벤트를 쉽게 관리할 수 있도록 돕는 문화 행사 플랫폼입니다.
+사용자는 관심 카테고리를 설정하고 맞춤형 알림을 받을 수 있으며, 이벤트에 대한 정보를 확인하고 자신의 방문 기록을 티켓북에 저장할 수 있습니다.
+또한, 커뮤니티에서 행사 후기를 공유하고, 다른 사용자와 실시간으로 채팅할 수 있습니다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<br/><br/>
 
-## Expanding the ESLint configuration
+## 기술 스택
+### 📌 프레임워크
+- Next.js 14
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### ✅ 언어
+- TypeScript
 
-- Configure the top-level `parserOptions` property like this:
+### 🎨 스타일링
+- Tailwind CSS
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 📦 상태 관리
+- React Query
+- Zustand
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
