@@ -29,9 +29,9 @@ const ContentCard = ({ src, title, place, date }: ContentProps) => {
             className='absolute text-xl transition-transform bottom-2 right-2 hover:scale-110'
           >
             {liked ? (
-              <FaHeart className='text-[#21C6BD]' />
+              <FaHeart className='text-primary' />
             ) : (
-              <CiHeart className='hover:text-[#rgba(33, 198, 189, 0.5)] text-border' />
+              <CiHeart className='text-border hover:text-primary-hover' />
             )}
           </button>
         </div>
