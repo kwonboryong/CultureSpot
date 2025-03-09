@@ -12,8 +12,8 @@ const buttonVariants = cva(
         default: 'bg-black text-white shadow hover:bg-text-sub',
         primary: 'bg-primary hover:bg-primary-hover text-white shadow',
         secondary: 'bg-white border border-default hover:bg-bg-light',
-        kakao: 'bg-[#FEE500] hover:bg-[#f4e02a]',
-        negative: 'bg-red-600 hover:bg-red-700 text-white',
+        kakao: 'bg-[#FEE500] hover:bg-[#f4e02a] ',
+        negative: 'bg-red-600 hover:bg-red-700 text-white shadow',
       },
       size: {
         default: 'px-4 py-2 w-32',
