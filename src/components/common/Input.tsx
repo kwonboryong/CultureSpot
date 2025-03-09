@@ -1,22 +1,34 @@
 import * as React from 'react';
-
 import { cn } from '../../lib/utils';
 
-const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<'input'>>(
-  ({ className, type, ...props }, ref) => {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  icon?: React.ReactNode;
+}
+
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, icon, type, ...props }, ref) => {
     return (
-      <input
-        type={type}
-        className={cn(
-          'border-input file:text-foreground placeholder:text-muted-foreground focus-visible:ring-ring flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm',
-          className
+      <div className='relative w-full rounded-lg focus-within:ring-1 focus-within:ring-offset-primary'>
+        <input
+          type={type}
+          className={cn(
+            'focus-visible:ring-ring flex h-10 w-full bg-bg-light px-4 py-1 text-sm transition-colors placeholder:text-text-disabled focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm',
+            className,
+            'pr-10',
+            'rounded-lg'
+          )}
+          ref={ref}
+          {...props}
+        />
+
+        {icon && (
+          <div className='absolute right-3 top-1/2 -translate-y-1/2 transform cursor-pointer text-xs'>
+            {icon}
+          </div>
         )}
-        ref={ref}
-        {...props}
-      />
+      </div>
     );
   }
 );
-Input.displayName = 'Input';
 
-export { Input };
+Input.displayName = 'Input';
