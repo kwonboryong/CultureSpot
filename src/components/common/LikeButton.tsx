@@ -4,14 +4,28 @@ import { FaHeart } from 'react-icons/fa';
 
 const LikeButton = () => {
   const [liked, setLiked] = useState(false);
+  const [count, setCount] = useState(0);
 
+  const toggleLike = () => {
+    if (liked) {
+      setCount((prev) => prev - 1);
+    } else {
+      setCount((prev) => prev + 1);
+    }
+    setLiked(!liked);
+  };
   return (
-    <div className='inline-block rounded-10 border p-2 hover:bg-bg-deep'>
-      <div className='flex items-center gap-2'>
-        <p className=''>카운트</p>
-        <FaHeart className='text-primary' />
+    <button
+      className='inline-block rounded-10 border px-2 py-1 hover:bg-bg-deep'
+      onClick={toggleLike}
+    >
+      <div className='flex items-center gap-1.5'>
+        <p className='text-text'>{count}</p>
+        <FaHeart
+          className={` ${liked ? 'text-primary' : 'text-text-disabled'}`}
+        />
       </div>
-    </div>
+    </button>
   );
 };
 
