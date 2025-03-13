@@ -4,7 +4,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from './Dialog';
+} from './CommonDialog';
 
 interface CommonModalProps {
   variant?: 'delete' | 'fix' | 'withdraw';
