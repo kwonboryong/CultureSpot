@@ -11,7 +11,6 @@ interface GenreButtonProps {
 const GenreButton = ({ genre, mode, onRemove }: GenreButtonProps) => {
   const [selected, setSelected] = useState(false);
 
-  // A 모드: 선택/해제 토글
   const handleClick = () => {
     if (mode === 'toggle' || mode === 'black-toggle') {
       setSelected((prev) => !prev);
