@@ -7,19 +7,20 @@ import {
 } from './ContentDialog';
 
 interface ContentModalProps {
-  //
+  children: React.ReactNode;
 }
 
-const ContentModal = ({}: ContentModalProps) => {
+const ContentModal = ({ children }: ContentModalProps) => {
   return (
     <Dialog>
-      <DialogTrigger>모달 Openddd</DialogTrigger>
+      <DialogTrigger>컨텐츠 Open</DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle style={{ whiteSpace: 'pre-line' }}>
             {/* {modalText} */}
           </DialogTitle>
         </DialogHeader>
+        {children}
       </DialogContent>
     </Dialog>
   );
