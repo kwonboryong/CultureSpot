@@ -4,7 +4,11 @@ import SearchBar from './SearchBar';
 import Dropdown from './Dropdown';
 import { useRouter } from 'next/navigation';
 
-const Header = () => {
+type HeaderProps = {
+  onToggleSidebar: () => void;
+};
+
+const Header = ({ onToggleSidebar }: HeaderProps) => {
   const userName = '컬처피플';
   const router = useRouter();
   function handleLogout() {
@@ -15,7 +19,7 @@ const Header = () => {
     <header className='fixed left-0 top-0 flex h-20 w-full items-center justify-between'>
       <div className='flex-[3]'>
         <div className='mx-[40px] flex w-[280px] gap-10'>
-          <button>
+          <button onClick={onToggleSidebar}>
             <Icon
               name='HAMBURGER_MENU'
               size={22}
