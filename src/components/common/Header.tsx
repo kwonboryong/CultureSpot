@@ -29,9 +29,9 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
 
           <Link href={'/'}>
             <img
-              src='/assets/Logo.svg'
+              src='/assets/logo.svg'
               className='h-9 w-60 cursor-pointer'
-              alt='Logo'
+              alt='logo'
             />
           </Link>
         </div>
