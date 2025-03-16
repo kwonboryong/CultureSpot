@@ -1,6 +1,7 @@
 import { InputHTMLAttributes } from 'react';
 import { cn } from 'src/lib/utils';
 import { IoIosSearch } from 'react-icons/io';
+import Icon from 'src/icons/Icon';
 
 interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
@@ -15,8 +16,12 @@ const SearchBar = ({ ...props }: SearchInputProps) => {
         {...props}
       />
 
-      <div className='absolute text-xs transform -translate-y-1/2 cursor-pointer right-3 top-1/2'>
-        <IoIosSearch className='w-6 h-6 text-text-sub' />
+      <div className='absolute right-3 top-1/2 -translate-y-1/2 transform cursor-pointer text-xs'>
+        <Icon
+          name='SEARCH'
+          size={18}
+          className='stroke-text-sub stroke-[2px]'
+        />
       </div>
     </div>
   );
