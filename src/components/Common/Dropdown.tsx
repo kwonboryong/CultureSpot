@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, HTMLAttributes } from 'react';
-import Icon from '../Icons/Icon';
+import Icon from '../../icons/Icon';
 import { cn } from 'src/lib/utils';
 
 const dropdownButtonWidths = {

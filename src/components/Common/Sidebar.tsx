@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Icon from '../Icons/Icon';
+import Icon from '../../icons/Icon';
 import { HTMLAttributes, useState } from 'react';
 import { cn } from 'src/lib/utils';
 import clsx from 'clsx';
