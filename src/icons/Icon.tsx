@@ -1,4 +1,4 @@
-import { ICON_PATHS } from 'src/constants/iconsPaths';
+import { ICON_PATHS } from './iconsPaths';
 import { cn } from 'src/lib/utils';
 
 type IconName = keyof typeof ICON_PATHS;
