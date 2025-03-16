@@ -1,6 +1,5 @@
 import { InputHTMLAttributes } from 'react';
 import { cn } from 'src/lib/utils';
-import { IoIosSearch } from 'react-icons/io';
 import Icon from 'src/icons/Icon';
 
 interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {}
