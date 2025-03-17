@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import { FaHeart } from 'react-icons/fa';
 import Icon from 'src/icons/Icon';
 import { cn } from 'src/lib/utils';
 
