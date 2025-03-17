@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
-import { FaHeart } from 'react-icons/fa';
+import Icon from 'src/icons/Icon';
+import { cn } from 'src/lib/utils';
 
 const LikeButton = () => {
   const [liked, setLiked] = useState(false);
@@ -21,8 +22,13 @@ const LikeButton = () => {
     >
       <div className='flex items-center gap-1.5'>
         <p className='text-text'>{count}</p>
-        <FaHeart
-          className={` ${liked ? 'text-primary' : 'text-text-disabled'}`}
+        <Icon
+          name='LIKE'
+          size={18}
+          className={cn(
+            liked ? 'fill-primary' : 'fill-text-disabled',
+            'stroke-none'
+          )}
         />
       </div>
     </button>
