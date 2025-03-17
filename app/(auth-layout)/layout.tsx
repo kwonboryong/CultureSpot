@@ -16,15 +16,13 @@ export default function AuthLayout({
   return (
     <html lang='ko'>
       <body className='flex justify-center'>
-        <main className='mt-[18vh] flex w-full flex-col items-center'>
+        <main className='mt-[18vh] flex w-full flex-col items-center caret-transparent'>
           <img src='/assets/Logo.svg' alt='CultureSpot 로고' />
-          <p className='pt-4 caret-transparent'>
-            로그인 후 더 많은 서비스를 사용해보세요
-          </p>
+          <p className='pt-4'>로그인 후 더 많은 서비스를 사용해보세요</p>
           <motion.img
             src='/assets/logo-icon.svg'
             alt='CultureSpot 로고 아이콘'
-            className='no-cursor m-9 w-44'
+            className='m-11 w-44'
             animate={{
               rotateY: [0, 360],
             }}
