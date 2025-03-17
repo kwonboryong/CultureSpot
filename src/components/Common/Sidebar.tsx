@@ -2,27 +2,25 @@
 
 import Link from 'next/link';
 import Icon from '../../icons/Icon';
-import { HTMLAttributes, useState } from 'react';
+import { HTMLAttributes } from 'react';
 import { cn } from 'src/lib/utils';
 import clsx from 'clsx';
 import { SidebarItem } from 'src/constants/sidebarItems';
 
 type SidebarProps = {
+  currentUrl: string;
   sidebarItems: SidebarItem[];
   initialIndex?: null | number;
   isCollapsed?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 export default function Sidebar({
+  currentUrl,
   sidebarItems,
   initialIndex = null,
   isCollapsed = false,
   ...rest
 }: SidebarProps) {
-  const [selectedIndex, setSeletedIndex] = useState<number | null>(
-    initialIndex
-  );
-
   return (
     <aside className='h-lvh w-fit bg-bg' {...rest}>
       <ul className={cn(isCollapsed ? 'w-[90px]' : 'w-[200px]')}>
@@ -30,14 +28,15 @@ export default function Sidebar({
           <li
             key={index}
             className={cn(
-              !isCollapsed && index === selectedIndex && 'bg-primary-main100',
+              !isCollapsed &&
+                currentUrl.startsWith(url) &&
+                'bg-primary-main100',
               !isCollapsed && 'hover:bg-primary-main100',
               'font-semibold text-text-sub'
             )}
           >
             <Link
               href={url}
-              onClick={() => setSeletedIndex(index)}
               className={cn(
                 'gap-x-15 group flex h-[50px] items-center justify-start px-[20px]',
                 isCollapsed ? 'w-[90px]' : 'w-[200px]'
@@ -49,7 +48,7 @@ export default function Sidebar({
                   size={18}
                   className={cn(
                     'stroke-[2px] group-hover:stroke-primary',
-                    index === selectedIndex
+                    currentUrl.startsWith(url)
                       ? 'stroke-primary'
                       : 'stroke-text-sub'
                   )}
@@ -58,7 +57,7 @@ export default function Sidebar({
                   <p
                     className={clsx(
                       'text-caption group-hover:text-primary',
-                      index === selectedIndex && 'text-primary'
+                      currentUrl.startsWith(url) && 'text-primary'
                     )}
                   >
                     {label}
@@ -69,7 +68,7 @@ export default function Sidebar({
                 <p
                   className={cn(
                     'group-hover:text-primary',
-                    index === selectedIndex && 'text-primary'
+                    currentUrl.startsWith(url) && 'text-primary'
                   )}
                 >
                   {label}

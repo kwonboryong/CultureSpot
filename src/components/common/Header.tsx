@@ -1,33 +1,48 @@
 import Link from 'next/link';
 import Icon from '../../icons/Icon';
 import SearchBar from './SearchBar';
+import Dropdown from './Dropdown';
+import { useRouter } from 'next/navigation';
 
-const Header = () => {
+type HeaderProps = {
+  onToggleSidebar: () => void;
+};
+
+const Header = ({ onToggleSidebar }: HeaderProps) => {
+  const userName = '컬처피플';
+  const router = useRouter();
+  function handleLogout() {
+    router.push('/');
+  }
+
   return (
-    <header className='flex h-20 items-center justify-between'>
-      <div className='ml-7 flex w-[25%] gap-10'>
-        <button>
-          <Icon
-            name='HAMBURGER_MENU'
-            size={22}
-            className='stroke-text-sub stroke-[2px]'
-          />
-        </button>
+    <header className='fixed left-0 top-0 flex h-20 w-full items-center justify-between'>
+      <div className='flex-[3]'>
+        <div className='mx-[40px] flex w-[280px] gap-10'>
+          <button onClick={onToggleSidebar}>
+            <Icon
+              name='HAMBURGER_MENU'
+              size={22}
+              className='stroke-text-sub stroke-[2px]'
+            />
+          </button>
 
-        <Link href={'/'}>
-          <img
-            src='/assets/Logo.svg'
-            className='h-9 w-60 cursor-pointer'
-            alt='Logo'
-          />
-        </Link>
+          <Link href={'/'}>
+            <img
+              src='/assets/logo.svg'
+              className='h-9 w-60 cursor-pointer'
+              alt='logo'
+            />
+          </Link>
+        </div>
       </div>
 
-      <div className='w-[25%]'>
-        <SearchBar />
+      <div className='flex flex-[4]'>
+        <SearchBar className='min-w-[300px] flex-[1]' />
+        <div className='flex-[1]'></div>
       </div>
 
-      <div className='mr-7 flex w-[25%] justify-end gap-4'>
+      <div className='mr-7 flex flex-[1] justify-end gap-4'>
         <button>
           <Icon
             name='NOTIFICATION'
@@ -35,7 +50,20 @@ const Header = () => {
             className='stroke-text-sub stroke-[2px]'
           />
         </button>
-        <div>드롭다운</div>
+        <Dropdown
+          type='link'
+          buttonText={userName + ' 님'}
+          menuItems={[
+            {
+              label: '마이페이지',
+              onClick: () => router.push('/my/dashboard'),
+            },
+            { label: '로그아웃', onClick: handleLogout },
+          ]}
+          buttonWidth='fit'
+          hideButtonBorder
+          hideIcon
+        />
       </div>
     </header>
   );

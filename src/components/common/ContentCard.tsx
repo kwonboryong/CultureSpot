@@ -18,7 +18,7 @@ const ContentCard = ({ src, title, place, date }: ContentProps) => {
       <CardHeader>
         <div className='relative'>
           <img
-            src={src || '/assets/Logo Icon.svg'}
+            src={src || '/assets/logo-icon.svg'}
             className='h-56 w-40 rounded-10'
             alt='공연 이미지'
           />

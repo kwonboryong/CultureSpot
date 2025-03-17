@@ -94,7 +94,7 @@ export default function Dropdown({
   return (
     <div
       className={cn(
-        'relative inline-block text-left text-text-sub',
+        'relative inline-block flex-shrink-0 text-left text-text-sub',
         dropdownFontSizes[fontSize]
       )}
       ref={menuRef}
