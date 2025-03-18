@@ -35,7 +35,7 @@ export default function NavigationBar({
         isCollapsed={isCollapsed}
       />
       <div
-        className={cn(isCollapsed ? 'pl-[80px]' : 'pl-[200px]', 'pt-[80px]')}
+        className={cn(isCollapsed ? 'pl-[90px]' : 'pl-[200px]', 'pt-[80px]')}
       >
         {children}
       </div>
