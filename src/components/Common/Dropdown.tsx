@@ -128,12 +128,12 @@ export default function Dropdown({
       {isOpen && (
         <div
           className={cn(
-            'absolute z-10 mt-3 rounded-10 border bg-white shadow-lg',
+            'absolute z-10 mt-3 overflow-hidden rounded-10 border bg-white shadow-lg',
             menuAlign === 'right' ? 'right-0' : 'left-0',
             dropdownMenuWidths[menuWidth]
           )}
         >
-          <ul className={cn('py-1')}>
+          <ul className={cn('p-1')}>
             {menuItems.map((item, idx) => (
               <li
                 key={idx}
@@ -145,7 +145,7 @@ export default function Dropdown({
                   item.onClick();
                 }}
                 className={cn(
-                  'flex cursor-pointer items-center justify-start bg-bg px-2 font-semibold text-text-sub hover:brightness-[0.98]',
+                  'flex cursor-pointer items-center justify-start rounded-5 bg-bg px-2 font-semibold text-text-sub hover:brightness-[0.98]',
                   dropdownMenuHeights[menuHeight],
                   type === 'select' &&
                     isSelected === item.label &&
