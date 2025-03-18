@@ -14,6 +14,7 @@ const buttonVariants = cva(
         secondary: 'bg-white border border-default hover:bg-bg-light',
         kakao: 'bg-[#FEE500] hover:bg-[#f4e02a] ',
         negative: 'bg-red-600 hover:bg-red-700 text-white shadow',
+        none: 'text-text-sub',
       },
       size: {
         default: 'px-4 py-2 w-32',
