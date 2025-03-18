@@ -9,7 +9,7 @@ type HeaderProps = {
 };
 
 const Header = ({ onToggleSidebar }: HeaderProps) => {
-  const userName = '컬처피플';
+  const userName = 'user';
   const router = useRouter();
   function handleLogout() {
     router.push('/');
@@ -18,7 +18,7 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
   return (
     <header className='fixed left-0 top-0 flex h-20 w-full items-center justify-between'>
       <div className='flex-[3]'>
-        <div className='mx-[40px] flex w-[280px] gap-10'>
+        <div className='mx-[34px] flex w-[280px] gap-10'>
           <button onClick={onToggleSidebar}>
             <Icon
               name='HAMBURGER_MENU'
