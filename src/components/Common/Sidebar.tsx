@@ -6,6 +6,9 @@ import { HTMLAttributes } from 'react';
 import { cn } from 'src/lib/utils';
 import clsx from 'clsx';
 import { SidebarItem } from 'src/constants/sidebarItems';
+import dynamic from 'next/dynamic';
+
+const SidebarProfile = dynamic(() => import('./SidebarProfile'));
 
 type SidebarProps = {
   currentUrl: string;
@@ -24,6 +27,9 @@ export default function Sidebar({
   return (
     <aside className='h-lvh w-fit bg-bg' {...rest}>
       <ul className={cn(isCollapsed ? 'w-[90px]' : 'w-[200px]')}>
+        {currentUrl.startsWith('/my') && (
+          <SidebarProfile isCollapsed={isCollapsed} />
+        )}
         {sidebarItems.map(({ iconName, label, url }, index) => (
           <li
             key={index}
