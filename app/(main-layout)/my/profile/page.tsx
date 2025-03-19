@@ -1,69 +1,44 @@
 'use client';
-import { useForm, SubmitHandler } from 'react-hook-form';
 import { Button } from 'src/components/Common/Button';
-
-interface ProfileForm {
-  password: string;
-  nickname: string;
-}
+import Input from 'src/components/Common/Input';
+import Icon from 'src/icons/Icon';
 
 export default function Profile() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ProfileForm>({
-    defaultValues: {
-      password: '',
-      nickname: '',
-    },
-  });
-
-  const onSubmit: SubmitHandler<ProfileForm> = (data) =>
-    console.log('폼 데이터:', data);
-
   return (
-    <div className='max-w-md p-4 mx-auto border rounded-lg'>
-      <p className='text-xl font-bold'>회원 정보 수정</p>
+    <div className='flex flex-col items-center justify-center gap-3 p-5 mx-auto'>
+      <p className='text-h3'>회원 정보 수정</p>
 
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className='flex flex-col gap-4 mt-4'
-      >
-        {/* 이메일 입력 */}
-        <label className='flex flex-col'>
-          이메일:
-          <input
-            type='email'
-            {...register('password', {
-              required: '이메일을 입력하세요.',
-              pattern: {
-                value: /^\S+@\S+$/,
-                message: '올바른 이메일을 입력하세요.',
-              },
-            })}
-            className='p-2 border rounded'
-          />
-          {errors.password && (
-            <p className='text-red-500'>{errors.password.message}</p>
-          )}
-        </label>
+      <form action='' className='flex flex-col gap-5'>
+        <Input type='email' placeholder='기존 이메일 값' />
+        <Input
+          type='password'
+          placeholder='비밀번호'
+          icon={<Icon name='EYE' size={40} className='text-black bg-black' />}
+        />
+        <Input
+          type='password'
+          placeholder='비밀번호 확인'
+          icon={<Icon name='EYE' size={40} className='text-black bg-black' />}
+        />
+        <Input type='text' icon='중복 확인' placeholder='닉네임' />
 
-        <label className='flex flex-col'>
-          소개:
-          <textarea
-            {...register('nickname')}
-            className='p-2 border rounded resize-none'
-          />
-        </label>
-        <div className='flex'>
-          <Button variant='secondary' children='취소' type='submit' />
-          <Button children='수정 완료' type='submit' />
+        <div className='bg-teal-300'>
+          <p>관심 장르 설정</p>
         </div>
-        <Button variant='none' className=''>
-          회원 탈퇴
-        </Button>
       </form>
+
+      <div className='flex gap-3'>
+        <Button
+          variant='secondary'
+          children='취소'
+          type='submit'
+          className='flex-1'
+        />
+        <Button children='수정 완료' type='submit' className='flex-1' />
+      </div>
+      <Button variant='none' className='text-xs'>
+        회원 탈퇴
+      </Button>
     </div>
   );
 }
