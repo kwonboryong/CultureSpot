@@ -19,7 +19,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         />
 
         {icon && (
-          <div className='absolute text-xs transform -translate-y-1/2 cursor-pointer right-3 top-1/2'>
+          <div className='absolute text-xs transform -translate-y-1/2 cursor-pointer right-3 top-1/2 hover:text-primary-hover'>
             {icon}
           </div>
         )}
