@@ -5,8 +5,9 @@ import Input from 'src/components/Common/Input';
 import Icon from 'src/icons/Icon';
 import GenreButton from './../../../../src/components/Common/GenreButton';
 import AvatarProfile from 'src/components/Common/AvatarProfile';
+import CommonModal from 'src/components/modal/CommonModal';
 
-// 상수 처리
+// 장르 상수 처리
 const genres = [
   { type: '공연', name: '전시' },
   { type: '공연', name: '연극' },
@@ -22,12 +23,44 @@ const genres = [
 ];
 
 export default function Profile() {
+  // 모달
+  const [modalVariant, setModalVariant] = useState<
+    'cancel' | 'withdraw' | null
+  >(null);
+
+  const openModal = (variant: 'cancel' | 'withdraw') =>
+    setModalVariant(variant);
+  const closeModal = () => setModalVariant(null);
+
+  // 비밀번호 보이기 / 숨기기
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const [nickname, setNickname] = useState('');
+
+  // 중복 확인
+  const handleCheckDuplicate = (e: React.MouseEvent) => {
+    e.preventDefault();
+    console.log('중복 확인 아이콘 클릭');
+  };
+
+  // 선택된 장르 저장
+  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+
+  // 장르 버튼 클릭 시 상태 업데이트
+  const handleGenreClick = (genre: string) => {
+    setSelectedGenres((prev) => {
+      const updatedGenres = prev.includes(genre)
+        ? prev.filter((g) => g !== genre)
+        : [...prev, genre];
+
+      console.log('선택된 장르: ', updatedGenres);
+      return updatedGenres;
+    });
+  };
+
   return (
-    <div className='mx-auto flex w-[50%] flex-col items-center justify-center gap-3 p-5'>
-      {/* w-[30%]  */}
+    <div className='mx-auto flex w-[30%] flex-col items-center justify-center gap-3 p-5'>
       <p className='text-h3'>회원 정보 수정</p>
       <AvatarProfile />
 
@@ -44,7 +77,11 @@ export default function Profile() {
           icon={
             <button
               type='button'
-              onClick={() => setShowPassword(!showPassword)}
+              onClick={() => {
+                setShowPassword(!showPassword);
+
+                console.log('비밀번호 아이콘 클릭: ', showPassword);
+              }}
               className='cursor-pointer'
             >
               <Icon
@@ -61,7 +98,10 @@ export default function Profile() {
           icon={
             <button
               type='button'
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              onClick={() => {
+                setShowConfirmPassword(!showConfirmPassword);
+                console.log('비밀번호 확인 아이콘 클릭: ', showConfirmPassword);
+              }}
               className='cursor-pointer'
             >
               <Icon
@@ -73,12 +113,27 @@ export default function Profile() {
           }
         />
 
-        <Input type='text' icon='중복 확인' placeholder='닉네임' />
+        <Input
+          type='text'
+          icon={
+            <button type='button' onClick={handleCheckDuplicate}>
+              중복 확인
+            </button>
+          }
+          placeholder='닉네임'
+          value={nickname}
+          onChange={(e) => setNickname(e.target.value)}
+        />
 
         <div className='pt-2'>
           <p className='pb-1'>관심 장르 설정</p>
           {genres.map((genre, i) => (
-            <GenreButton key={i} genre={genre.name} mode={'toggle'} />
+            <GenreButton
+              key={i}
+              genre={genre.name}
+              mode={'toggle'}
+              onClick={() => handleGenreClick(genre.name)}
+            />
           ))}
         </div>
       </form>
@@ -87,14 +142,27 @@ export default function Profile() {
         <Button
           variant='secondary'
           children='취소'
-          type='submit'
+          type='button'
           className='flex-1'
+          onClick={() => openModal('cancel')}
         />
         <Button children='수정 완료' type='submit' className='flex-1' />
       </div>
-      <Button variant='none' className='text-xs'>
-        회원 탈퇴
-      </Button>
+
+      <Button
+        children='회원 탈퇴'
+        variant='none'
+        className='text-xs'
+        onClick={() => openModal('withdraw')}
+      />
+
+      {modalVariant && (
+        <CommonModal
+          variant={modalVariant}
+          open={!!modalVariant}
+          onClose={closeModal}
+        />
+      )}
     </div>
   );
 }
