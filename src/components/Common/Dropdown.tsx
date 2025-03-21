@@ -51,7 +51,7 @@ type MenuItem = {
 
 type DropdownProps = {
   type: DropdownType;
-  buttonText?: string;
+  buttonText?: React.ReactNode;
   menuItems: MenuItem[];
   fontSize?: DropdownFontSizes;
   buttonWidth?: DropdownButtonWidths;
@@ -61,6 +61,8 @@ type DropdownProps = {
   menuAlign?: MenuAlign;
   hideButtonBorder?: boolean;
   hideIcon?: boolean;
+  hideButtonHover?: boolean;
+  hideButtonPadding?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 export default function Dropdown({
@@ -75,6 +77,8 @@ export default function Dropdown({
   menuAlign = 'right',
   hideButtonBorder = false,
   hideIcon = false,
+  hideButtonHover = false,
+  hideButtonPadding = false,
   ...rest
 }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -103,10 +107,12 @@ export default function Dropdown({
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className={cn(
-          'flex items-center justify-between rounded-10 bg-white px-2 py-1 hover:bg-gray-50',
+          'flex items-center justify-between rounded-10 bg-bg px-2 py-1',
           !hideButtonBorder && 'border',
           dropdownButtonWidths[buttonWidth],
-          dropdownButtonHeights[buttonHeight]
+          dropdownButtonHeights[buttonHeight],
+          !hideButtonHover && 'hover:bg-gray-50',
+          hideButtonPadding && 'p-0'
         )}
       >
         <div>
