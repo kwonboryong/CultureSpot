@@ -14,7 +14,7 @@ const AvatarProfile = () => (
         <Icon
           name='RESET'
           size={16}
-          className='fill-bg-dark stroke-white stroke-[2px] group-hover:fill-gray-500'
+          className='cursor-pointer fill-bg-dark stroke-white stroke-[2px] group-hover:fill-gray-500'
         />
       </div>
     </div>
