@@ -1,6 +1,6 @@
 import '../../styles/globals.css';
 import React from 'react';
-import LogoAnimation from 'src/components/Common/LogoAnimation';
+import LogoAnimation from 'src/components/common/LogoAnimation';
 
 export const metadata = {
   title: '로그인 - My Next.js App',
