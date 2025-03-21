@@ -6,14 +6,16 @@ interface GenreButtonProps {
   genre: string;
   mode: 'toggle' | 'removable' | 'black-toggle';
   onRemove?: (genre: string) => void;
+  onClick: () => void;
 }
 
-const GenreButton = ({ genre, mode, onRemove }: GenreButtonProps) => {
+const GenreButton = ({ genre, mode, onRemove, onClick }: GenreButtonProps) => {
   const [selected, setSelected] = useState(false);
 
   const handleClick = () => {
     if (mode === 'toggle' || mode === 'black-toggle') {
       setSelected((prev) => !prev);
+      onClick();
     }
   };
 
@@ -29,6 +31,7 @@ const GenreButton = ({ genre, mode, onRemove }: GenreButtonProps) => {
 
   return (
     <button
+      type='button'
       onClick={handleClick}
       className={`m-1 rounded-10 px-2.5 py-1.5 text-body2 ${modeStyles[mode]}`}
     >
