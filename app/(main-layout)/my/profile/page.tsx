@@ -63,12 +63,12 @@ export default function Profile() {
             <button
               type='button'
               onClick={() => togglePasswordVisibility('password')}
-              className='cursor-pointer'
+              className='flex cursor-pointer'
             >
               <Icon
                 name={showPassword ? 'EYE' : 'EYE_SLASHED'}
                 size={20}
-                className='stroke-text-sub'
+                className='stroke-text-sub stroke-[2px]'
               />
             </button>
           }
@@ -80,12 +80,12 @@ export default function Profile() {
             <button
               type='button'
               onClick={() => togglePasswordVisibility('confirmPassword')}
-              className='cursor-pointer'
+              className='flex cursor-pointer'
             >
               <Icon
                 name={showConfirmPassword ? 'EYE' : 'EYE_SLASHED'}
                 size={20}
-                className='stroke-text-sub'
+                className='stroke-text-sub stroke-[2px]'
               />
             </button>
           }
