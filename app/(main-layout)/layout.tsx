@@ -1,6 +1,7 @@
 import '../../styles/globals.css';
 import React from 'react';
 import NavigationBar from 'src/components/common/NavigationBar';
+import ModalContainer from 'src/components/modal/ModalContainer';
 
 export const metadata = {
   title: 'My Next.js App',
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang='en'>
       <body>
         <NavigationBar>{children}</NavigationBar>
+        <ModalContainer />
       </body>
     </html>
   );

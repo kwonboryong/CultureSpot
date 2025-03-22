@@ -5,7 +5,6 @@ import { cn } from '../../lib/utils';
 import { Button } from '../common/Button';
 
 const Dialog = DialogPrimitive.Root;
-const DialogTrigger = DialogPrimitive.Trigger;
 const DialogPortal = DialogPrimitive.Portal;
 const DialogClose = DialogPrimitive.Close;
 
@@ -100,7 +99,6 @@ export {
   Dialog,
   DialogPortal,
   DialogOverlay,
-  DialogTrigger,
   DialogClose,
   DialogContent,
   DialogHeader,

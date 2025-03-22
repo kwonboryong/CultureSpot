@@ -3,10 +3,11 @@ import { cn } from '../../lib/utils';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ReactNode;
+  onIconClick?: () => void;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, icon, type, ...props }, ref) => {
+  ({ className, icon, type, onIconClick, ...props }, ref) => {
     return (
       <div className='relative w-full rounded-lg focus-within:ring-1 focus-within:ring-offset-primary-hover'>
         <input
@@ -19,7 +20,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         />
 
         {icon && (
-          <div className='absolute text-xs transform -translate-y-1/2 cursor-pointer right-3 top-1/2'>
+          <div
+            onClick={onIconClick}
+            className='absolute right-3 top-1/2 -translate-y-1/2 transform cursor-pointer text-xs font-semibold text-primary underline hover:text-primary-hover'
+          >
             {icon}
           </div>
         )}
