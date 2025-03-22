@@ -5,18 +5,12 @@ import Input from 'src/components/Common/Input';
 import Icon from 'src/icons/Icon';
 import GenreButton from './../../../../src/components/Common/GenreButton';
 import AvatarProfile from 'src/components/Common/AvatarProfile';
-import CommonModal from 'src/components/modal/CommonModal';
 import { GENRES } from '../../../../src/constants/genre';
+import { useModalStore } from 'src/stores/useModalStore';
 
 export default function Profile() {
   // 모달
-  const [modalVariant, setModalVariant] = useState<
-    'cancel' | 'withdraw' | null
-  >(null);
-
-  const openModal = (variant: 'cancel' | 'withdraw') =>
-    setModalVariant(variant);
-  const closeModal = () => setModalVariant(null);
+  const { openModal } = useModalStore();
 
   // 비밀번호 보이기 / 숨기기
   const [showPassword, setShowPassword] = useState(false);
@@ -31,7 +25,7 @@ export default function Profile() {
   };
 
   // 선택된 장르 저장
-  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+  const [, setSelectedGenres] = useState<string[]>([]);
 
   // 장르 버튼 클릭 시 상태 업데이트
   const handleGenreClick = (genre: string) => {
@@ -141,14 +135,6 @@ export default function Profile() {
         className='text-xs'
         onClick={() => openModal('withdraw')}
       />
-
-      {modalVariant && (
-        <CommonModal
-          variant={modalVariant}
-          open={!!modalVariant}
-          onClose={closeModal}
-        />
-      )}
     </div>
   );
 }
