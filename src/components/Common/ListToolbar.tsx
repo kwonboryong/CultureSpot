@@ -24,7 +24,7 @@ export default function ListToolbar({
   return (
     <div
       className={cn(
-        'flex items-center justify-between border-b border-border px-[20px]',
+        'flex items-center justify-between border-b border-divider px-[20px]',
         listToolbarSize[size],
         className
       )}
