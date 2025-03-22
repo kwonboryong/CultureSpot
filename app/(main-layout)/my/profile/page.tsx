@@ -9,23 +9,28 @@ import { GENRES } from '../../../../src/constants/genre';
 import { useModalStore } from 'src/stores/useModalStore';
 
 export default function Profile() {
-  // 모달
   const { openModal } = useModalStore();
-
-  // 비밀번호 보이기 / 숨기기
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
   const [nickname, setNickname] = useState('');
+  const [, setSelectedGenres] = useState<string[]>([]);
+
+  // 비밀번호 아이콘 핸들러
+  const togglePasswordVisibility = (type: 'password' | 'confirmPassword') => {
+    if (type === 'password') {
+      setShowPassword((prev) => !prev);
+      console.log('비밀번호 아이콘 클릭');
+    } else {
+      setShowConfirmPassword((prev) => !prev);
+      console.log('비밀번호 확인 아이콘 클릭');
+    }
+  };
 
   // 중복 확인
   const handleCheckDuplicate = (e: React.MouseEvent) => {
     e.preventDefault();
     console.log('중복 확인 아이콘 클릭');
   };
-
-  // 선택된 장르 저장
-  const [, setSelectedGenres] = useState<string[]>([]);
 
   // 장르 버튼 클릭 시 상태 업데이트
   const handleGenreClick = (genre: string) => {
@@ -57,11 +62,7 @@ export default function Profile() {
           icon={
             <button
               type='button'
-              onClick={() => {
-                setShowPassword(!showPassword);
-
-                console.log('비밀번호 아이콘 클릭: ', showPassword);
-              }}
+              onClick={() => togglePasswordVisibility('password')}
               className='cursor-pointer'
             >
               <Icon
@@ -78,10 +79,7 @@ export default function Profile() {
           icon={
             <button
               type='button'
-              onClick={() => {
-                setShowConfirmPassword(!showConfirmPassword);
-                console.log('비밀번호 확인 아이콘 클릭: ', showConfirmPassword);
-              }}
+              onClick={() => togglePasswordVisibility('confirmPassword')}
               className='cursor-pointer'
             >
               <Icon
