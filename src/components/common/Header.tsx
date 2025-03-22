@@ -33,7 +33,7 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
   }, []);
 
   return (
-    <header className='fixed left-0 top-0 flex h-20 w-full items-center justify-between'>
+    <header className='fixed left-0 top-0 flex h-20 w-full items-center justify-between bg-bg'>
       <div className='flex-[3]'>
         <div className='mx-[34px] flex w-[280px] gap-10'>
           <button onClick={onToggleSidebar}>
