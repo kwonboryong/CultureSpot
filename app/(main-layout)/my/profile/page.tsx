@@ -6,21 +6,7 @@ import Icon from 'src/icons/Icon';
 import GenreButton from './../../../../src/components/Common/GenreButton';
 import AvatarProfile from 'src/components/Common/AvatarProfile';
 import CommonModal from 'src/components/modal/CommonModal';
-
-// 장르 상수 처리
-const genres = [
-  { type: '공연', name: '전시' },
-  { type: '공연', name: '연극' },
-  { type: '공연', name: '음악' },
-  { type: '공연', name: '무용' },
-  { type: '공연', name: '미술' },
-  { type: '공연', name: '건축' },
-  { type: '공연', name: '영상' },
-  { type: '전시', name: '문학' },
-  { type: '전시', name: '문화 정책' },
-  { type: '전시', name: '축제' },
-  { type: '전시', name: '기타' },
-];
+import { GENRES } from '../../../../src/constants/genre';
 
 export default function Profile() {
   // 모달
@@ -127,7 +113,7 @@ export default function Profile() {
 
         <div className='pt-2'>
           <p className='pb-1'>관심 장르 설정</p>
-          {genres.map((genre, i) => (
+          {GENRES.map((genre, i) => (
             <GenreButton
               key={i}
               genre={genre.name}
