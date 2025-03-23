@@ -6,7 +6,7 @@ export const mockPostSummaries: PostSummary[] = [
     title: '개발자 취업 준비 루틴 공유',
     content:
       '제가 실천했던 취업 준비 루틴을 공유합니다! 아침에는 코딩 테스트 문제를 풀고, 오후에는 프로젝트를 진행했어요. 이력서와 포트폴리오를 주 1회씩 점검하며 꾸준히 개선했고, GitHub 커밋도 매일 유지하며 실력을 관리했습니다. 특히 기술 면접 대비로는 예상 질문을 정리하고, 친구들과 모의 면접을 하면서 실전 감각을 익혔어요.',
-    author: { userId: 7, username: 'user707', profileCode: 707 },
+    author: { userId: 1, username: '컬처스팟', profileCode: 1234 },
     hits: 210,
     likeCount: 30,
     commentCount: 9,
