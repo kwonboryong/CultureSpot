@@ -124,8 +124,12 @@ export default function Dropdown({
           <div className='pl-2'>
             <Icon
               name='ARROW_DOWN'
-              size={14}
-              className={cn(isOpen && 'rotate-180', 'duration-100')}
+              size={12}
+              className={cn(
+                isOpen && 'rotate-180',
+                'duration-100',
+                'stroke-text'
+              )}
             />
           </div>
         )}
