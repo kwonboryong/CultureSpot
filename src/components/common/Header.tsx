@@ -2,21 +2,38 @@ import Link from 'next/link';
 import Icon from '../../icons/Icon';
 import SearchBar from './SearchBar';
 import Dropdown from './Dropdown';
+import Avatar from 'boring-avatars';
 import { useRouter } from 'next/navigation';
+import { useRef, useEffect, useState } from 'react';
 
 type HeaderProps = {
   onToggleSidebar: () => void;
 };
 
 const Header = ({ onToggleSidebar }: HeaderProps) => {
-  const userName = 'user';
+  const profileCode = 1234;
   const router = useRouter();
+  const [isNotificationPopupOpen, setIsNotificationPopupOpen] = useState(false);
+  const notificationRef = useRef<HTMLButtonElement>(null);
   function handleLogout() {
     router.push('/');
   }
 
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        notificationRef.current &&
+        !notificationRef.current.contains(e.target as Node)
+      ) {
+        setIsNotificationPopupOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   return (
-    <header className='fixed left-0 top-0 flex h-20 w-full items-center justify-between'>
+    <header className='fixed left-0 top-0 flex h-20 w-full items-center justify-between bg-bg'>
       <div className='flex-[3]'>
         <div className='mx-[34px] flex w-[280px] gap-10'>
           <button onClick={onToggleSidebar}>
@@ -42,17 +59,23 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
         <div className='flex-[1]'></div>
       </div>
 
-      <div className='mr-7 flex flex-[1] justify-end gap-4'>
-        <button>
+      <div className='mr-7 flex flex-[1] items-center justify-end gap-3'>
+        <button
+          className='group flex h-[36px] w-[36px] items-center justify-center rounded-40 hover:bg-primary-main100'
+          onClick={() => setIsNotificationPopupOpen((prev) => !prev)}
+          ref={notificationRef}
+        >
           <Icon
             name='NOTIFICATION'
             size={23}
-            className='stroke-text-sub stroke-[2px]'
+            className='stroke-text-sub stroke-[2px] group-hover:stroke-primary'
           />
         </button>
         <Dropdown
           type='link'
-          buttonText={userName + ' 님'}
+          buttonText={
+            <Avatar name={String(profileCode)} variant='beam' size={36} />
+          }
           menuItems={[
             {
               label: '마이페이지',
@@ -63,6 +86,8 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
           buttonWidth='fit'
           hideButtonBorder
           hideIcon
+          hideButtonHover
+          hideButtonPadding
         />
       </div>
     </header>
