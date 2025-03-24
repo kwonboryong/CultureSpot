@@ -3,15 +3,13 @@ import { cn } from 'src/lib/utils';
 
 type IconName = keyof typeof ICON_PATHS;
 
-export default function Icon({
-  name,
-  size,
-  className,
-}: {
+type IconProps = {
   name: IconName;
   size: number;
   className?: string;
-}) {
+} & React.SVGProps<SVGSVGElement>;
+
+export default function Icon({ name, size, className, ...props }: IconProps) {
   return (
     <svg
       width={size}
@@ -25,6 +23,7 @@ export default function Icon({
       clipRule='evenodd'
       overflow='visible'
       className={cn('stroke-text stroke-[1.5px]', className)}
+      {...props}
     >
       {ICON_PATHS[name].map((path, idx) => (
         <path key={idx} d={path} />
