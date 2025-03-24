@@ -1,6 +1,6 @@
 'use client';
-import { useModalStore } from 'src/stores/useModalStore';
-import CommonModal from './CommonModal';
+import { useModalStore } from '@/stores/useModalStore';
+import CommonModal from '@/components/modal/CommonModal';
 
 export default function ModalContainer() {
   const { modalVariant, closeModal } = useModalStore();

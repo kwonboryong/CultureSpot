@@ -1,7 +1,7 @@
-import '../../styles/globals.css';
+import '@/styles/globals.css';
 import React from 'react';
-import NavigationBar from 'src/components/common/NavigationBar';
-import ModalContainer from 'src/components/modal/ModalContainer';
+import NavigationBar from '@/components/common/NavigationBar';
+import ModalContainer from '@/components/modal/ModalContainer';
 
 export const metadata = {
   title: 'My Next.js App',

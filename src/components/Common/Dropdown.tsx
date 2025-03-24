@@ -1,8 +1,7 @@
 'use client';
-
 import { useState, useRef, useEffect, HTMLAttributes } from 'react';
-import Icon from '../../icons/Icon';
-import { cn } from 'src/lib/utils';
+import Icon from '@/icons/Icon';
+import { cn } from '@/lib/utils';
 
 const dropdownButtonWidths = {
   default: 'w-32',

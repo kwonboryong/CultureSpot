@@ -1,11 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import Icon from '../../icons/Icon';
+import Icon from '@/icons/Icon';
 import { HTMLAttributes } from 'react';
-import { cn } from 'src/lib/utils';
+import { cn } from '@/lib/utils';
 import clsx from 'clsx';
-import { SidebarItem } from 'src/constants/sidebarItems';
+import { SidebarItem } from '@/constants/sidebarItems';
 import dynamic from 'next/dynamic';
 
 const SidebarProfile = dynamic(() => import('./SidebarProfile'));

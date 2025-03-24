@@ -1,8 +1,8 @@
 'use client';
 import * as React from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import { cn } from '../../lib/utils';
-import { Button } from '../common/Button';
+import { cn } from '@/lib/utils';
+import { Button } from '@/components/common/Button';
 
 const Dialog = DialogPrimitive.Root;
 const DialogPortal = DialogPrimitive.Portal;

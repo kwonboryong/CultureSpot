@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cn } from '../../lib/utils';
+import { cn } from '@/lib/utils';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ReactNode;
@@ -22,7 +22,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {icon && (
           <div
             onClick={onIconClick}
-            className='absolute right-3 top-1/2 -translate-y-1/2 transform cursor-pointer text-xs font-semibold text-primary underline hover:text-primary-hover'
+            className='absolute text-xs font-semibold underline transform -translate-y-1/2 cursor-pointer right-3 top-1/2 text-primary hover:text-primary-hover'
           >
             {icon}
           </div>

@@ -1,7 +1,12 @@
 'use client';
 import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from './Card';
-import Icon from 'src/icons/Icon';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/common/Card';
+import Icon from '@/icons/Icon';
 
 interface ContentProps {
   src?: string;
@@ -19,13 +24,13 @@ const ContentCard = ({ src, title, place, date }: ContentProps) => {
         <div className='relative'>
           <img
             src={src || '/assets/logo-icon.svg'}
-            className='h-56 w-40 rounded-10'
+            className='w-40 h-56 rounded-10'
             alt='공연 이미지'
           />
 
           <button
             onClick={() => setLiked(!liked)}
-            className='absolute bottom-2 right-2 text-xl transition-transform hover:scale-110'
+            className='absolute text-xl transition-transform bottom-2 right-2 hover:scale-110'
           >
             {liked ? (
               <Icon
@@ -48,7 +53,7 @@ const ContentCard = ({ src, title, place, date }: ContentProps) => {
 
       <CardContent>
         <p className='text-sm text-text'>{place}</p>
-        <p className='text-body2 text-text-sub'>{date}</p>
+        <p className='text-caption text-text-sub'>{date}</p>
       </CardContent>
     </Card>
   );

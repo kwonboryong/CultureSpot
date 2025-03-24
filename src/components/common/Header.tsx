@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Icon from '../../icons/Icon';
-import SearchBar from './SearchBar';
-import Dropdown from './Dropdown';
+import Icon from '@/icons/Icon';
+import SearchBar from '@/components/common/SearchBar';
+import Dropdown from '@/components/common/Dropdown';
 import Avatar from 'boring-avatars';
 import { useRouter } from 'next/navigation';
 import { useRef, useEffect, useState } from 'react';
@@ -33,7 +33,7 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
   }, []);
 
   return (
-    <header className='fixed left-0 top-0 flex h-20 w-full items-center justify-between bg-bg'>
+    <header className='fixed top-0 left-0 flex items-center justify-between w-full h-20 bg-bg'>
       <div className='flex-[3]'>
         <div className='mx-[34px] flex w-[280px] gap-10'>
           <button onClick={onToggleSidebar}>
@@ -47,7 +47,7 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
           <Link href={'/'}>
             <img
               src='/assets/logo.svg'
-              className='h-9 w-60 cursor-pointer'
+              className='cursor-pointer h-9 w-60'
               alt='logo'
             />
           </Link>

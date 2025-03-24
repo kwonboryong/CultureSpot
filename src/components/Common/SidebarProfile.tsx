@@ -1,8 +1,8 @@
 import Avatar from 'boring-avatars';
-import { cn } from './../../lib/utils';
+import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import Icon from 'src/icons/Icon';
-import { mockCurrentUser } from './../../data/mockUser';
+import Icon from '@/icons/Icon';
+import { mockCurrentUser } from '@/data/mockUser';
 
 type SidebarProfileProps = {
   isCollapsed: boolean;
@@ -18,7 +18,7 @@ export default function SidebarProfile({ isCollapsed }: SidebarProfileProps) {
         isCollapsed ? 'h-[60px]' : 'h-[180px]'
       )}
     >
-      <Link href={'/my/dashboard'} className='relative'>
+      <Link href={'/my/profile'} className='relative group'>
         <Avatar
           name={String(profileCode)}
           variant='beam'
@@ -26,7 +26,7 @@ export default function SidebarProfile({ isCollapsed }: SidebarProfileProps) {
         />
         <div
           className={cn(
-            'group absolute bottom-0 right-0 flex h-[30px] w-[30px] items-center justify-center rounded-20 bg-bg-dark hover:bg-gray-500',
+            'absolute bottom-0 right-0 flex h-[30px] w-[30px] items-center justify-center rounded-20 bg-bg-dark group-hover:bg-gray-500',
             isCollapsed && 'opacity-0 hover:opacity-50'
           )}
         >

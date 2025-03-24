@@ -47,7 +47,7 @@ export default {
         h2: '24px', // 섹션 제목
         h3: '20px', // 작은 제목
         body1: '16px', // 본문
-        body2: '12px', // 작은 본문
+        body2: '14px', // 작은 본문
         caption: '12px', // 캡션, 부가 설명
       },
     },

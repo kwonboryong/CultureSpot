@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Icon from 'src/icons/Icon';
-import { PostSummary } from './../../../types/post';
-import { timeAgo } from './../../../utils/timeAgo';
+import Icon from '@/icons/Icon';
+import { PostSummary } from '@/types/post';
+import { timeAgo } from '@/utils/timeAgo';
 import Avatar from 'boring-avatars';
 
 interface PostListItemProps extends PostSummary {
@@ -29,11 +29,11 @@ export default function PostListItem({
         href={`/post/${postId}`}
         className='flex w-full flex-col gap-y-[10px] px-[20px] py-[20px]'
       >
-        <p className='truncate font-semibold'>{title}</p>
+        <p className='font-semibold truncate'>{title}</p>
         <p className='overflow-hidden text-ellipsis text-nowrap text-body2 text-text-sub'>
           {content}
         </p>
-        <div className='flex w-full items-center justify-between pt-2 text-body2'>
+        <div className='flex items-center justify-between w-full pt-2 text-body2'>
           <p className='flex items-center gap-x-[6px]'>
             <Avatar
               name={String(author.profileCode)}
