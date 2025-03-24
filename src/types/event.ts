@@ -5,6 +5,17 @@ export interface EventSummary {
   eventCategory: string;
 }
 
-export interface EventPreview {}
+export interface EventPreview extends EventSummary {
+  place: string;
+  eventStartDate: string;
+  eventEndDate: string;
+  posterUrl: string;
+}
 
-export interface EventDetail {}
+export interface EventDetail extends EventPreview {
+  address: string;
+  gpsX: string;
+  gpsY: string;
+  eventDescription: string;
+  eventUrl: string;
+}
