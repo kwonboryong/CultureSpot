@@ -60,17 +60,20 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
       </div>
 
       <div className='mr-7 flex flex-[1] items-center justify-end gap-3'>
-        <button
-          className='group flex h-[36px] w-[36px] items-center justify-center rounded-40 hover:bg-primary-main100'
-          onClick={() => setIsNotificationPopupOpen((prev) => !prev)}
-          ref={notificationRef}
-        >
-          <Icon
-            name='NOTIFICATION'
-            size={23}
-            className='stroke-text-sub stroke-[2px] group-hover:stroke-primary'
-          />
-        </button>
+        <div className='relative'>
+          <button
+            className='group flex h-[36px] w-[36px] items-center justify-center rounded-40 hover:bg-primary-main100'
+            onClick={() => setIsNotificationPopupOpen((prev) => !prev)}
+            ref={notificationRef}
+          >
+            <Icon
+              name='NOTIFICATION'
+              size={23}
+              className='stroke-text-sub stroke-[2px] group-hover:stroke-primary'
+            />
+          </button>
+          {isNotificationPopupOpen && <div></div>}
+        </div>
         <Dropdown
           type='link'
           buttonText={

@@ -22,7 +22,7 @@ export default function NavigationBar({
   }
 
   return (
-    <div>
+    <div className='z-[50]'>
       <Header onToggleSidebar={toggleSidebar} />
       <Sidebar
         currentUrl={pathname}
@@ -37,7 +37,7 @@ export default function NavigationBar({
       <div
         className={cn(isCollapsed ? 'pl-[90px]' : 'pl-[200px]', 'pt-[80px]')}
       >
-        {children}
+        <div className='p-[40px]'>{children}</div>
       </div>
     </div>
   );
