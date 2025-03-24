@@ -1,0 +1,21 @@
+.card {
+  transform-style: preserve-3d;
+}
+
+.card > * {
+  backface-visibility: hidden;
+  grid-area: 1 / 1 / 1 / 1;
+  z-index: 1;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.rotateY180 {
+  transform: perspective(3000px) rotateY(180deg);
+}
+
+.rotateY0 {
+  transform: perspective(3000px) perspective(800px);
+}
