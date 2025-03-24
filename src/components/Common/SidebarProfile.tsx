@@ -18,7 +18,7 @@ export default function SidebarProfile({ isCollapsed }: SidebarProfileProps) {
         isCollapsed ? 'h-[60px]' : 'h-[180px]'
       )}
     >
-      <Link href={'/my/dashboard'} className='relative'>
+      <Link href={'/my/profile'} className='relative'>
         <Avatar
           name={String(profileCode)}
           variant='beam'
