@@ -1,6 +1,6 @@
 'use client';
-import ListToolbar from './../../common/ListToolbar';
-import Dropdown from './../../common/Dropdown';
+import ListToolbar from '@/components/common/ListToolbar';
+import Dropdown from '@/components/common/Dropdown';
 
 interface PostListToolbarProps {
   postCount: number;

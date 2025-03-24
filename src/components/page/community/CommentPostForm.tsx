@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
-import { Button } from 'src/components/common/Button';
-import Textarea from '../../common/Textarea';
-import { cn } from '../../../lib/utils';
+import { Button } from '@/components/common/Button';
+import Textarea from '@/components/common/Textarea';
+import { cn } from '@/lib/utils';
 
 function CommentPostForm() {
   const [content, setContent] = useState('');

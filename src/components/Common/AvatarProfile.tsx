@@ -1,6 +1,6 @@
 import Avatar from 'boring-avatars';
-import { cn } from '../../lib/utils';
-import Icon from 'src/icons/Icon';
+import { cn } from '@/lib/utils';
+import Icon from '@/icons/Icon';
 
 const AvatarProfile = () => (
   <div className={'flex flex-col items-center justify-center gap-y-[12px]'}>

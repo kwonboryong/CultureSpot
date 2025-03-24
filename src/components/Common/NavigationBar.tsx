@@ -1,13 +1,13 @@
 'use client';
 
-import Header from 'src/components/common/Header';
+import Header from '@/components/common/Header';
 import React, { useState, useEffect } from 'react';
-import Sidebar from 'src/components/common/Sidebar';
+import Sidebar from '@/components/common/Sidebar';
 import {
   GENERAL_SIDEBAR_ITEMS,
   MYPAGE_SIDEBAR_ITEMS,
-} from 'src/constants/sidebarItems';
-import { cn } from 'src/lib/utils';
+} from '@/constants/sidebarItems';
+import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 
 export default function NavigationBar({

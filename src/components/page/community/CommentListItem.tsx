@@ -1,9 +1,9 @@
 'use client';
-import { Comment } from '../../../types/comment';
-import EditDeleteButton from '../../common/EditDeleteButton';
-import { formatDate } from '../../../utils/formatDate';
+import { Comment } from '@/types/comment';
+import EditDeleteButton from '@/components/common/EditDeleteButton';
+import { formatDate } from '@/utils/formatDate';
 import Avatar from 'boring-avatars';
-import { mockCurrentUser } from '../../../data/mockUser';
+import { mockCurrentUser } from '@/data/mockUser';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 
@@ -33,11 +33,11 @@ export default function CommentListItem({
 
   return (
     <div className='flex w-full flex-col gap-y-[10px] border-b bg-bg px-[20px] py-[20px] transition last:border-b-0'>
-      <div className='flex w-full items-start justify-between'>
+      <div className='flex items-start justify-between w-full'>
         <div className='flex w-fit items-center gap-x-[8px]'>
           <Avatar size={30} variant='beam' name={String(profileCode)} />
           <p className='flex flex-col'>
-            <span className='text-body2 font-semibold'>{username}</span>
+            <span className='font-semibold text-body2'>{username}</span>
             <time className='text-body2 text-text-sub'>{time}</time>
           </p>
         </div>

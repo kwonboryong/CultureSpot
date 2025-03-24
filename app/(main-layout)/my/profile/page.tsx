@@ -1,10 +1,10 @@
 'use client';
 import { useState } from 'react';
-import { Button } from 'src/components/Common/Button';
-import Input from 'src/components/Common/Input';
+import { Button } from '@/components/common/Button';
+import Input from '@/components/common/Input';
 import Icon from 'src/icons/Icon';
-import GenreButton from './../../../../src/components/Common/GenreButton';
-import AvatarProfile from 'src/components/Common/AvatarProfile';
+import GenreButton from '../../../../src/components/common/GenreButton';
+import AvatarProfile from '@/components/common/AvatarProfile';
 import { GENRES } from '../../../../src/constants/genre';
 import { useModalStore } from 'src/stores/useModalStore';
 

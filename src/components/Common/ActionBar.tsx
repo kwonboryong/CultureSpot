@@ -1,6 +1,6 @@
-import { cn } from './../../lib/utils';
+import { cn } from '@/lib/utils';
 import { HTMLAttributes } from 'react';
-import { Button, ButtonProps } from './Button';
+import { Button, ButtonProps } from '@/components/common/Button';
 
 type ActionBarProps = {
   leftContent?: React.ReactNode;
@@ -16,7 +16,7 @@ export default function ActionBar({
   return (
     <div
       className={cn(
-        'flex items-center justify-between border-t border-divider px-[20px] px-[40px] py-[10px]',
+        'flex items-center justify-between border-t border-divider px-[40px] py-[10px]',
         className
       )}
       {...rest}

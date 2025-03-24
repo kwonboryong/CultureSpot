@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
-import Icon from 'src/icons/Icon';
-import { cn } from 'src/lib/utils';
+import Icon from '@/icons/Icon';
+import { cn } from '@/lib/utils';
 
 const LikeButton = () => {
   const [liked, setLiked] = useState(false);
@@ -17,7 +17,7 @@ const LikeButton = () => {
   };
   return (
     <button
-      className='inline-block rounded-10 border px-2 py-1 hover:bg-bg-deep'
+      className='inline-block px-2 py-1 border rounded-10 hover:bg-bg-deep'
       onClick={toggleLike}
     >
       <div className='flex items-center gap-1.5'>

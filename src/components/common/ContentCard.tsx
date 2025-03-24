@@ -1,7 +1,12 @@
 'use client';
 import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from './Card';
-import Icon from 'src/icons/Icon';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/common/Card';
+import Icon from '@/icons/Icon';
 
 interface ContentProps {
   src?: string;

@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from 'react';
-import { cn } from 'src/lib/utils';
-import Icon from 'src/icons/Icon';
+import { cn } from '@/lib/utils';
+import Icon from '@/icons/Icon';
 
 interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
@@ -14,7 +14,7 @@ const SearchBar = ({ ...props }: SearchInputProps) => {
         )}
       />
 
-      <div className='absolute right-3 top-1/2 -translate-y-1/2 transform cursor-pointer text-xs'>
+      <div className='absolute text-xs transform -translate-y-1/2 cursor-pointer right-3 top-1/2'>
         <Icon
           name='SEARCH'
           size={18}
