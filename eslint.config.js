@@ -56,6 +56,9 @@ export default tseslint.config(
           extensions: ['.js', '.jsx', '.ts', '.tsx', '.css']
         }
       },
+      typescript: {
+        project: './tsconfig.json'
+      },
       tailwindcss: {
         config: './tailwind.config.js',
       },

@@ -5,6 +5,8 @@ import Dropdown from '@/components/common/Dropdown';
 import Avatar from 'boring-avatars';
 import { useRouter } from 'next/navigation';
 import { useRef, useEffect, useState } from 'react';
+import NotificationPopup from '@/components/page/notification/NotificationPopup';
+import { mockNotificationInfo } from '@/data/mockNotification';
 
 type HeaderProps = {
   onToggleSidebar: () => void;
@@ -33,7 +35,7 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
   }, []);
 
   return (
-    <header className='fixed top-0 left-0 flex items-center justify-between w-full h-20 bg-bg'>
+    <header className='fixed left-0 top-0 flex h-20 w-full items-center justify-between bg-bg'>
       <div className='flex-[3]'>
         <div className='mx-[34px] flex w-[280px] gap-10'>
           <button onClick={onToggleSidebar}>
@@ -47,7 +49,7 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
           <Link href={'/'}>
             <img
               src='/assets/logo.svg'
-              className='cursor-pointer h-9 w-60'
+              className='h-9 w-60 cursor-pointer'
               alt='logo'
             />
           </Link>
@@ -72,7 +74,9 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
               className='stroke-text-sub stroke-[2px] group-hover:stroke-primary'
             />
           </button>
-          {isNotificationPopupOpen && <div></div>}
+          {isNotificationPopupOpen && (
+            <NotificationPopup notificationInfo={mockNotificationInfo} />
+          )}
         </div>
         <Dropdown
           type='link'
