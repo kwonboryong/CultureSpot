@@ -8,7 +8,7 @@ import AvatarProfile from '@/components/common/AvatarProfile';
 import { GENRES } from '../../../../src/constants/genre';
 import { useModalStore } from 'src/stores/useModalStore';
 
-export default function Profile() {
+const Profile = () => {
   const { openModal } = useModalStore();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -27,13 +27,13 @@ export default function Profile() {
   };
 
   // 중복 확인
-  const handleCheckDuplicate = (e: React.MouseEvent) => {
+  const onCheckDuplicate = (e: React.MouseEvent) => {
     e.preventDefault();
     console.log('중복 확인 아이콘 클릭');
   };
 
   // 장르 버튼 클릭 시 상태 업데이트
-  const handleGenreClick = (genre: string) => {
+  const onGenreClick = (genre: string) => {
     setSelectedGenres((prev) => {
       const updatedGenres = prev.includes(genre)
         ? prev.filter((g) => g !== genre)
@@ -94,7 +94,7 @@ export default function Profile() {
         <Input
           type='text'
           icon={
-            <button type='button' onClick={handleCheckDuplicate}>
+            <button type='button' onClick={onCheckDuplicate}>
               중복 확인
             </button>
           }
@@ -110,7 +110,7 @@ export default function Profile() {
               key={i}
               genre={genre.name}
               mode={'toggle'}
-              onClick={() => handleGenreClick(genre.name)}
+              onClick={() => onGenreClick(genre.name)}
             />
           ))}
         </div>
@@ -135,4 +135,6 @@ export default function Profile() {
       />
     </div>
   );
-}
+};
+
+export default Profile;

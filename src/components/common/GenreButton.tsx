@@ -12,7 +12,7 @@ interface GenreButtonProps {
 const GenreButton = ({ genre, mode, onRemove, onClick }: GenreButtonProps) => {
   const [selected, setSelected] = useState(false);
 
-  const handleClick = () => {
+  const onClick = () => {
     if (mode === 'toggle' || mode === 'black-toggle') {
       setSelected((prev) => !prev);
       onClick();
@@ -32,7 +32,7 @@ const GenreButton = ({ genre, mode, onRemove, onClick }: GenreButtonProps) => {
   return (
     <button
       type='button'
-      onClick={handleClick}
+      onClick={onClick}
       className={`m-1 rounded-10 px-2.5 py-1.5 text-caption ${modeStyles[mode]}`}
     >
       <div className='flex items-center'>

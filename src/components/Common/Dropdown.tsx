@@ -64,7 +64,7 @@ type DropdownProps = {
   hideButtonPadding?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
-export default function Dropdown({
+const Dropdown = ({
   type,
   buttonText,
   menuItems,
@@ -79,19 +79,19 @@ export default function Dropdown({
   hideButtonHover = false,
   hideButtonPadding = false,
   ...rest
-}: DropdownProps) {
+}: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSelected, setIsSelected] = useState(menuItems[0].label);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
+    const onClickOutside = (e: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setIsOpen(false);
       }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    };
+    document.addEventListener('mousedown', onClickOutside);
+    return () => document.removeEventListener('mousedown', onClickOutside);
   }, []);
 
   return (
@@ -169,4 +169,6 @@ export default function Dropdown({
       )}
     </div>
   );
-}
+};
+
+export default Dropdown;

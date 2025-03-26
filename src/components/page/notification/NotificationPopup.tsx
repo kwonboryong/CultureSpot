@@ -9,11 +9,11 @@ type NotificationPopupProps = {
   notificationInfo: NotificationInfo;
 } & HTMLAttributes<HTMLDivElement>;
 
-export default function NotificationPopup({
+const NotificationPopup = ({
   notificationInfo,
   className,
   ...rest
-}: NotificationPopupProps) {
+}: NotificationPopupProps) => {
   const { unreadCount, notifications } = notificationInfo;
   return (
     <div
@@ -41,4 +41,6 @@ export default function NotificationPopup({
       )}
     </div>
   );
-}
+};
+
+export default NotificationPopup;

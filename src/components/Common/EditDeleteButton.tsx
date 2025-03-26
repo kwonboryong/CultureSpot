@@ -5,10 +5,7 @@ type OnClickFunctions = {
   onClickDelete: () => void;
 };
 
-export default function EditDeleteButton({
-  onClickEdit,
-  onClickDelete,
-}: OnClickFunctions) {
+const EditDeleteButton = ({ onClickEdit, onClickDelete }: OnClickFunctions) => {
   return (
     <div className='flex items-center gap-x-[6px] text-body2 text-text-sub'>
       <span className='cursor-pointer hover:text-text' onClick={onClickEdit}>
@@ -19,4 +16,6 @@ export default function EditDeleteButton({
       </span>
     </div>
   );
-}
+};
+
+export default EditDeleteButton;

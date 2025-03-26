@@ -4,10 +4,10 @@ import React from 'react';
 interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
-function Textarea(
+const Textarea = (
   { className, ...props }: TextareaProps,
   ref: React.Ref<HTMLTextAreaElement>
-) {
+) => {
   return (
     <textarea
       ref={ref}
@@ -15,6 +15,6 @@ function Textarea(
       {...props}
     />
   );
-}
+};
 
 export default React.forwardRef(Textarea);

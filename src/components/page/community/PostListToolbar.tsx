@@ -6,7 +6,7 @@ interface PostListToolbarProps {
   postCount: number;
 }
 
-export default function PostListToolbar({ postCount }: PostListToolbarProps) {
+const PostListToolbar = ({ postCount }: PostListToolbarProps) => {
   return (
     <div className='border-b'>
       <ListToolbar hideBorder>
@@ -32,4 +32,6 @@ export default function PostListToolbar({ postCount }: PostListToolbarProps) {
       </ListToolbar>
     </div>
   );
-}
+};
+
+export default PostListToolbar;

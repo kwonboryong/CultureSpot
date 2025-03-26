@@ -8,7 +8,7 @@ type SidebarProfileProps = {
   isCollapsed: boolean;
 };
 
-export default function SidebarProfile({ isCollapsed }: SidebarProfileProps) {
+const SidebarProfile = ({ isCollapsed }: SidebarProfileProps) => {
   const { profileCode, username } = mockCurrentUser;
 
   return (
@@ -18,7 +18,7 @@ export default function SidebarProfile({ isCollapsed }: SidebarProfileProps) {
         isCollapsed ? 'h-[60px]' : 'h-[180px]'
       )}
     >
-      <Link href={'/my/profile'} className='relative group'>
+      <Link href={'/my/profile'} className='group relative'>
         <Avatar
           name={String(profileCode)}
           variant='beam'
@@ -40,4 +40,6 @@ export default function SidebarProfile({ isCollapsed }: SidebarProfileProps) {
       {!isCollapsed && <p className='text-h3'>{username}</p>}
     </div>
   );
-}
+};
+
+export default SidebarProfile;

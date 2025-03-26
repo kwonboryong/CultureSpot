@@ -17,21 +17,21 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
   const router = useRouter();
   const [isNotificationPopupOpen, setIsNotificationPopupOpen] = useState(false);
   const notificationRef = useRef<HTMLButtonElement>(null);
-  function handleLogout() {
+  const onClickLogout = () => {
     router.push('/');
-  }
+  };
 
   useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
+    const onClickOutside = (e: MouseEvent) => {
       if (
         notificationRef.current &&
         !notificationRef.current.contains(e.target as Node)
       ) {
         setIsNotificationPopupOpen(false);
       }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    };
+    document.addEventListener('mousedown', onClickOutside);
+    return () => document.removeEventListener('mousedown', onClickOutside);
   }, []);
 
   return (
@@ -88,7 +88,7 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
               label: '마이페이지',
               onClick: () => router.push('/my/dashboard'),
             },
-            { label: '로그아웃', onClick: handleLogout },
+            { label: '로그아웃', onClick: onClickLogout },
           ]}
           buttonWidth='fit'
           hideButtonBorder

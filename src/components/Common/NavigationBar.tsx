@@ -10,16 +10,12 @@ import {
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 
-export default function NavigationBar({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const NavigationBar = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const [isCollapsed, setIsCollapsed] = useState(false);
-  function toggleSidebar() {
+  const toggleSidebar = () => {
     setIsCollapsed((prev) => !prev);
-  }
+  };
 
   return (
     <div className='z-[50]'>
@@ -41,4 +37,6 @@ export default function NavigationBar({
       </div>
     </div>
   );
-}
+};
+
+export default NavigationBar;
