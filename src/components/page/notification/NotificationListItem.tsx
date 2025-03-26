@@ -2,14 +2,14 @@ import Link from 'next/link';
 import { cn } from 'src/lib/utils';
 import clsx from 'clsx';
 import { Notification } from '@/types/notification';
-import { timeAgo } from '@/utils/timeAgo';
+import timeAgo from '@/utils/timeAgo';
 
 export interface NotificationListItemProps extends Notification {
   messagePrefix: string;
   isPopup?: boolean;
 }
 
-export default function NotificationListItem({
+const NotificationListItem = ({
   notificationId,
   eventId,
   eventType,
@@ -19,7 +19,7 @@ export default function NotificationListItem({
   isRead,
   messagePrefix,
   isPopup = false,
-}: NotificationListItemProps) {
+}: NotificationListItemProps) => {
   const time = timeAgo(notifiedAt);
 
   return (
@@ -81,4 +81,6 @@ export default function NotificationListItem({
       </Link>
     </article>
   );
-}
+};
+
+export default NotificationListItem;

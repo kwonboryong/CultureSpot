@@ -8,11 +8,11 @@ import styles from './TicketbookDetail.module.css';
 import Avatar from 'boring-avatars';
 import { TicketbookDetail } from '@/types/ticketbook';
 import Link from 'next/link';
-import { formatDate } from '@/utils/formatDate';
+import formatDate from '@/utils/formatDate';
 import { mockCurrentUser } from '@/data/mockUser';
 import Icon from '@/icons/Icon';
 
-export default function TicketbookDetail({
+const TicketbookDetail = ({
   ticketbookId,
   eventTitle,
   eventId,
@@ -26,16 +26,16 @@ export default function TicketbookDetail({
   ticketbookContent,
   ticketbookCreatedAt,
   ticketbookUpdatedAt,
-}: TicketbookDetail) {
+}: TicketbookDetail) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const divRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState<number>(0);
   const { username } = mockCurrentUser;
-  function onClickEdit() {}
-  function onClickDelete() {}
-  function onClickFlip() {
+  const onClickEdit = () => {};
+  const onClickDelete = () => {};
+  const onClickFlip = () => {
     setIsFlipped((prev) => !prev);
-  }
+  };
 
   useEffect(() => {
     const resizeObserver = new ResizeObserver(() => {
@@ -295,4 +295,6 @@ export default function TicketbookDetail({
       </div>
     </div>
   );
-}
+};
+
+export default TicketbookDetail;

@@ -4,26 +4,20 @@ import { useState } from 'react';
 import Icon from 'src/icons/Icon';
 import { cn } from 'src/lib/utils';
 
-export default function Rating({
-  size,
-  fixedRate,
-}: {
-  size: number;
-  fixedRate?: number;
-}) {
+const Rating = ({ size, fixedRate }: { size: number; fixedRate?: number }) => {
   const starArr = [1, 2, 3, 4, 5];
   const [hover, setHover] = useState(0);
   const [starNum, setStarNum] = useState(fixedRate || 0);
 
-  function onClickStar(idx: number) {
+  const onClickStar = (idx: number) => {
     !fixedRate && setStarNum(idx);
-  }
-  function onHoverStar(idx: number) {
+  };
+  const onHoverStar = (idx: number) => {
     !fixedRate && starNum === 0 && setHover(idx);
-  }
-  function onLeaveStar() {
+  };
+  const onLeaveStar = () => {
     !fixedRate && setHover(0);
-  }
+  };
 
   return (
     <div className='flex w-fit items-center justify-center gap-x-[4px]'>
@@ -46,4 +40,6 @@ export default function Rating({
       ))}
     </div>
   );
-}
+};
+
+export default Rating;

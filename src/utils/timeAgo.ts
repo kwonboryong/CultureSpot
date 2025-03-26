@@ -1,4 +1,4 @@
-export function timeAgo(date: string | Date): string {
+const timeAgo = (date: string | Date): string => {
   const now = new Date();
 
   const inputDate = new Date(date);
@@ -31,4 +31,6 @@ export function timeAgo(date: string | Date): string {
     const diffInYears = Math.floor(diffInSeconds / years);
     return `${diffInYears}년 전`;
   }
-}
+};
+
+export default timeAgo;

@@ -7,12 +7,12 @@ type ActionBarProps = {
   buttons: ButtonProps[];
 } & HTMLAttributes<HTMLDivElement>;
 
-export default function ActionBar({
+const ActionBar = ({
   leftContent,
   buttons,
   className,
   ...rest
-}: ActionBarProps) {
+}: ActionBarProps) => {
   return (
     <div
       className={cn(
@@ -29,4 +29,6 @@ export default function ActionBar({
       </div>
     </div>
   );
-}
+};
+
+export default ActionBar;

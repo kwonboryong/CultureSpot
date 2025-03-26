@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 
-export default function LogoAnimation() {
+const LogoAnimation = () => {
   return (
     <motion.img
       src='/assets/logo-icon.svg'
@@ -18,4 +18,6 @@ export default function LogoAnimation() {
       }}
     />
   );
-}
+};
+
+export default LogoAnimation;

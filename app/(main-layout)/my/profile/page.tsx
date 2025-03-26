@@ -8,7 +8,7 @@ import AvatarProfile from '@/components/common/AvatarProfile';
 import { GENRES } from '../../../../src/constants/genre';
 import { useModalStore } from 'src/stores/useModalStore';
 
-export default function Profile() {
+const Profile = () => {
   const { openModal } = useModalStore();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -135,4 +135,6 @@ export default function Profile() {
       />
     </div>
   );
-}
+};
+
+export default Profile;

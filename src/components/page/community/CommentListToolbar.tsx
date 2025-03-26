@@ -7,9 +7,7 @@ interface CommentListToolbarProps {
   commentCount: number;
 }
 
-export default function CommentListToolbar({
-  commentCount,
-}: CommentListToolbarProps) {
+const CommentListToolbar = ({ commentCount }: CommentListToolbarProps) => {
   return (
     <div className='border-b'>
       <ListToolbar hideBorder>
@@ -22,4 +20,6 @@ export default function CommentListToolbar({
       <CommentPostForm />
     </div>
   );
-}
+};
+
+export default CommentListToolbar;

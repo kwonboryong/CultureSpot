@@ -7,11 +7,7 @@ export const metadata = {
   description: '로그인하여 더 많은 서비스를 이용해보세요.',
 };
 
-export default function AuthLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='ko'>
       <body className='flex justify-center'>
@@ -24,4 +20,6 @@ export default function AuthLayout({
       </body>
     </html>
   );
-}
+};
+
+export default AuthLayout;

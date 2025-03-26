@@ -1,7 +1,7 @@
 import Icon from 'src/icons/Icon';
 import Link from 'next/link';
 
-export default function NotificationHeader() {
+const NotificationHeader = () => {
   return (
     <header className='flex items-center justify-between p-[15px] pb-[5px]'>
       <div className='flex items-center gap-x-[6px] font-semibold'>
@@ -25,4 +25,6 @@ export default function NotificationHeader() {
       </Link>
     </header>
   );
-}
+};
+
+export default NotificationHeader;

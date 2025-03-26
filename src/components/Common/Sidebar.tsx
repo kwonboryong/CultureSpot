@@ -17,13 +17,13 @@ type SidebarProps = {
   isCollapsed?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
-export default function Sidebar({
+const Sidebar = ({
   currentUrl,
   sidebarItems,
   initialIndex = null,
   isCollapsed = false,
   ...rest
-}: SidebarProps) {
+}: SidebarProps) => {
   return (
     <aside className='h-lvh w-fit bg-bg' {...rest}>
       <ul className={cn(isCollapsed ? 'w-[90px]' : 'w-[200px]')}>
@@ -86,4 +86,6 @@ export default function Sidebar({
       </ul>
     </aside>
   );
-}
+};
+
+export default Sidebar;

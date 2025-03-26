@@ -7,10 +7,10 @@ interface NotificationListToolbarProps {
   isPopup?: boolean;
 }
 
-export default function NotificationListToolbar({
+const NotificationListToolbar = ({
   unreadCount,
   isPopup = false,
-}: NotificationListToolbarProps) {
+}: NotificationListToolbarProps) => {
   return (
     <ListToolbar
       className={cn('sticky left-0 top-0 z-10 bg-bg pr-[6px] text-body2')}
@@ -38,4 +38,6 @@ export default function NotificationListToolbar({
       />
     </ListToolbar>
   );
-}
+};
+
+export default NotificationListToolbar;

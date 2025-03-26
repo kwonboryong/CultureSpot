@@ -9,11 +9,11 @@ interface CommentEditFormProps {
   onClickCancel: () => void;
 }
 
-function CommentEditForm({
+const CommentEditForm = ({
   initialContent,
   resetTrigger,
   onClickCancel,
-}: CommentEditFormProps) {
+}: CommentEditFormProps) => {
   const [content, setContent] = useState(initialContent);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -68,6 +68,6 @@ function CommentEditForm({
       </div>
     </div>
   );
-}
+};
 
 export default CommentEditForm;

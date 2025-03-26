@@ -13,13 +13,13 @@ type ListToolbarProps = {
   hideBorder?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
-export default function ListToolbar({
+const ListToolbar = ({
   size = 'lg',
   hideBorder = false,
   children,
   className,
   ...rest
-}: ListToolbarProps) {
+}: ListToolbarProps) => {
   return (
     <div
       className={cn(
@@ -33,4 +33,6 @@ export default function ListToolbar({
       {children}
     </div>
   );
-}
+};
+
+export default ListToolbar;

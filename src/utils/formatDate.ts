@@ -1,4 +1,4 @@
-export function formatDate(dateString: string): string {
+const formatDate = (dateString: string): string => {
   const date = new Date(dateString);
 
   const year = date.getFullYear();
@@ -8,4 +8,6 @@ export function formatDate(dateString: string): string {
   const minutes = String(date.getMinutes()).padStart(2, '0');
 
   return `${year}.${month}.${day} ${hours}:${minutes}`;
-}
+};
+
+export default formatDate;

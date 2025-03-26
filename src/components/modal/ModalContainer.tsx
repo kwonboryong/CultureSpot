@@ -2,7 +2,7 @@
 import { useModalStore } from '@/stores/useModalStore';
 import CommonModal from '@/components/modal/CommonModal';
 
-export default function ModalContainer() {
+const ModalContainer = () => {
   const { modalVariant, closeModal } = useModalStore();
 
   return (
@@ -12,4 +12,6 @@ export default function ModalContainer() {
       )}
     </>
   );
-}
+};
+
+export default ModalContainer;

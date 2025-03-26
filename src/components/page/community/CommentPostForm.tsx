@@ -3,7 +3,7 @@ import { Button } from '@/components/common/Button';
 import Textarea from '@/components/common/Textarea';
 import { cn } from '@/lib/utils';
 
-function CommentPostForm() {
+const CommentPostForm = () => {
   const [content, setContent] = useState('');
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -46,6 +46,6 @@ function CommentPostForm() {
       </div>
     </div>
   );
-}
+};
 
 export default CommentPostForm;
