@@ -17,16 +17,16 @@ const CommentEditForm = ({
   const [content, setContent] = useState(initialContent);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setContent(e.target.value);
   };
 
   useEffect(() => {
     setContent(initialContent);
-    handleInput();
+    onInput();
   }, [resetTrigger]);
 
-  const handleInput = () => {
+  const onInput = () => {
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
       textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
@@ -44,8 +44,8 @@ const CommentEditForm = ({
       <Textarea
         ref={textareaRef}
         value={content}
-        onChange={handleChange}
-        onInput={handleInput}
+        onChange={onChange}
+        onInput={onInput}
         rows={1}
         className={cn(
           'h-[36px] max-h-[120px] min-h-[24px] flex-grow resize-none overflow-hidden p-2 text-sm'
