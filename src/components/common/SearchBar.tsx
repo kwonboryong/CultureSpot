@@ -21,7 +21,7 @@ const searchBarVariants = cva(
   }
 );
 
-export interface SearchInputProps
+interface SearchInputProps
   extends InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof searchBarVariants> {}
 
