@@ -18,7 +18,7 @@ const NavigationBar = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <div className='z-[50]'>
+    <div>
       <Header onToggleSidebar={toggleSidebar} />
       <Sidebar
         currentUrl={pathname}
@@ -27,11 +27,15 @@ const NavigationBar = ({ children }: { children: React.ReactNode }) => {
             ? MYPAGE_SIDEBAR_ITEMS
             : GENERAL_SIDEBAR_ITEMS
         }
-        className='fixed left-0 top-20'
+        className='fixed left-0 top-20 z-50'
         isCollapsed={isCollapsed}
       />
       <div
-        className={cn(isCollapsed ? 'pl-[90px]' : 'pl-[200px]', 'pt-[80px]')}
+        className={cn(
+          isCollapsed ? 'pl-[90px]' : 'pl-[200px]',
+          'pt-[80px]',
+          'z-40'
+        )}
       >
         <div className='p-[40px]'>{children}</div>
       </div>
