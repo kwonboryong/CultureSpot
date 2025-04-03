@@ -37,7 +37,7 @@ const NavigationBar = ({ children }: { children: React.ReactNode }) => {
           'z-40'
         )}
       >
-        <div className='p-[40px]'>{children}</div>
+        <div>{children}</div>
       </div>
     </div>
   );
