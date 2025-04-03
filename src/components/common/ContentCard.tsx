@@ -30,9 +30,7 @@ const ContentCard = ({
   isRankVisible = false,
 }: ContentProps) => {
   const [liked, setLiked] = useState(false);
-  const [cardWidth, setCardWidth] = useState<number>(
-    typeof window !== 'undefined' ? window.innerWidth : 150
-  );
+  const [cardWidth, setCardWidth] = useState<number | null>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
   const onClickLike = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -77,18 +75,18 @@ const ContentCard = ({
               {liked ? (
                 <Icon
                   name='LIKE'
-                  size={cardWidth > 150 ? 22 : 18}
+                  size={cardWidth && cardWidth > 150 ? 22 : 18}
                   className='fill-primary stroke-none'
                 />
               ) : (
                 <Icon
                   name='LIKE'
-                  size={cardWidth > 150 ? 22 : 18}
+                  size={cardWidth && cardWidth > 150 ? 22 : 18}
                   className='stroke-border hover:stroke-primary'
                 />
               )}
             </button>
-            {isRankVisible && (
+            {isRankVisible && cardWidth && (
               <div
                 className='absolute font-semibold text-white'
                 style={{

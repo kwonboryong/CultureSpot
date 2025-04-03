@@ -28,9 +28,7 @@ const EventCarousel = ({
   isRankVisible = false,
   events,
 }: EventCarouselProps) => {
-  const [windowWidth, setWindowWidth] = useState<number>(
-    typeof window !== 'undefined' ? window.innerWidth : 1024
-  );
+  const [windowWidth, setWindowWidth] = useState<number | null>(null);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -46,11 +44,15 @@ const EventCarousel = ({
       opts={{
         align: 'start',
         loop: true,
-        slidesToScroll: windowWidth > 1024 ? 6 : 1,
+        dragFree: windowWidth && windowWidth > 1024 ? false : true,
+        slidesToScroll: windowWidth && windowWidth > 1024 ? 6 : 1,
       }}
     >
       <CarouselContent
-        className={cn('-ml-3', windowWidth < 1024 && 'overflow-visible')}
+        className={cn(
+          '-ml-3',
+          windowWidth && windowWidth < 1024 && 'overflow-visible'
+        )}
       >
         {events.map(
           ({ title, place, startDate, endDate, imageUrl, id }, index) => (
@@ -71,10 +73,12 @@ const EventCarousel = ({
           )
         )}
       </CarouselContent>
-      {windowWidth > 1024 && (
+      {windowWidth && windowWidth > 1024 && (
         <CarouselPrevious className='-translate-y-[70px]' />
       )}
-      {windowWidth > 1024 && <CarouselNext className='-translate-y-[70px]' />}
+      {windowWidth && windowWidth > 1024 && (
+        <CarouselNext className='-translate-y-[70px]' />
+      )}
     </Carousel>
   );
 };
