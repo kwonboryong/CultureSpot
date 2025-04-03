@@ -1,5 +1,12 @@
+import MainCarousel from '@/components/common/MainCarousel';
+import { mockAdvertisements } from '@/data/mockAdvertisement';
+
 const Home = () => {
-  return <div className='p-[20px_0px_20px_20px] lg:p-[40px]'></div>;
+  return (
+    <div className='lg:p-[0px_34px_34px]'>
+      <MainCarousel items={mockAdvertisements} />
+    </div>
+  );
 };
 
 export default Home;
