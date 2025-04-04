@@ -57,8 +57,8 @@ const ContentCard = ({
 
   return (
     <Card ref={cardRef} className='transition-all duration-300'>
-      <Link href={`/events/${id}`}>
-        <CardHeader>
+      <CardHeader>
+        <Link href={`/events/${id}`}>
           <div className='group relative overflow-hidden rounded-10'>
             <img
               src={src || '/assets/logo-icon.svg'}
@@ -100,13 +100,15 @@ const ContentCard = ({
               </div>
             )}
           </div>
-        </CardHeader>
-        <CardContent className='h-[140px]'>
+        </Link>
+      </CardHeader>
+      <CardContent className='h-[140px]'>
+        <Link href={`/events/${id}`}>
           <CardTitle className='line-clamp-2'>{title}</CardTitle>
           <p className='line-clamp-2 text-sm text-text'>{place}</p>
           <p className='line-clamp-2 text-caption text-text-sub'>{date}</p>
-        </CardContent>
-      </Link>
+        </Link>
+      </CardContent>
     </Card>
   );
 };
