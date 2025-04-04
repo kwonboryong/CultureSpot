@@ -1,6 +1,29 @@
+import { GenreName } from '@/types/event';
+
+export const eventTypes = {
+  performance: '공연',
+  exhibition: '전시',
+} as const;
+
+export const sortTypes = ['latest', 'popular', 'oldest'] as const;
+
+export const genreNames = [
+  '전시',
+  '연극',
+  '음악',
+  '무용',
+  '미술',
+  '건축',
+  '영상',
+  '문학',
+  '문화 정책',
+  '축제',
+  '기타',
+] as const;
+
 interface Genre {
   type: string;
-  name: string;
+  name: GenreName;
 }
 
 export const GENRES: Genre[] = [
