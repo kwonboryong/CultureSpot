@@ -2,18 +2,23 @@
 import { useState } from 'react';
 import { Button } from '@/components/common/Button';
 import Input from '@/components/common/Input';
-import Icon from 'src/icons/Icon';
-import GenreButton from '../../../../src/components/common/GenreButton';
+import Icon from '@/icons/Icon';
+import ToggleButton from '@/components/common/ToggleButton';
 import AvatarProfile from '@/components/common/AvatarProfile';
-import { GENRES } from '../../../../src/constants/genre';
-import { useModalStore } from 'src/stores/useModalStore';
+import { GENRES } from '@/constants/event';
+import { GenreName } from '@/types/event';
+import { useModalStore } from '@/stores/useModalStore';
 
 const Profile = () => {
   const { openModal } = useModalStore();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [nickname, setNickname] = useState('');
-  const [, setSelectedGenres] = useState<string[]>([]);
+  const [selectedGenres, setSelectedGenres] = useState<GenreName[]>([
+    '전시',
+    '연극',
+    '무용',
+  ]);
 
   // 비밀번호 아이콘 핸들러
   const togglePasswordVisibility = (type: 'password' | 'confirmPassword') => {
@@ -33,7 +38,7 @@ const Profile = () => {
   };
 
   // 장르 버튼 클릭 시 상태 업데이트
-  const onGenreClick = (genre: string) => {
+  const onGenreClick = (genre: GenreName) => {
     setSelectedGenres((prev) => {
       const updatedGenres = prev.includes(genre)
         ? prev.filter((g) => g !== genre)
@@ -106,11 +111,11 @@ const Profile = () => {
         <div className='pt-2'>
           <p className='pb-1'>관심 장르 설정</p>
           {GENRES.map((genre, i) => (
-            <GenreButton
+            <ToggleButton
               key={i}
-              genre={genre.name}
-              mode={'toggle'}
+              text={genre.name}
               onClick={() => onGenreClick(genre.name)}
+              isSelected={selectedGenres.includes(genre.name)}
             />
           ))}
         </div>
