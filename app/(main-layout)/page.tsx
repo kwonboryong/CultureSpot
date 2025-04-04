@@ -1,9 +1,5 @@
 const Home = () => {
-  return (
-    <div>
-      <h1>/ (index)</h1>
-    </div>
-  );
+  return <div className='p-[20px_0px_20px_20px] lg:p-[40px]'></div>;
 };
 
 export default Home;
