@@ -1,11 +1,12 @@
-'use client';
+type Props = {
+  searchParams: {
+    eventType?: string;
+    sortType?: string;
+  };
+};
 
-import { useSearchParams } from 'next/navigation';
-
-export default function SearchPage() {
-  const searchParams = useSearchParams();
-  const eventType = searchParams.get('eventType');
-  const sortType = searchParams.get('sortType');
+const Page = ({ searchParams }: Props) => {
+  const { eventType, sortType } = searchParams;
 
   return (
     <div>
@@ -17,4 +18,6 @@ export default function SearchPage() {
       <h2>sort type:{sortType ?? '없음'}</h2>
     </div>
   );
-}
+};
+
+export default Page;
