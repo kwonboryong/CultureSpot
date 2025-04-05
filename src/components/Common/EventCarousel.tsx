@@ -1,8 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import formatDuration from '@/utils/formatDuration';
-import ContentCard from '@/components/common/ContentCard';
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactElement,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 import { cn } from '@/lib/utils';
 import {
   Carousel,
@@ -11,24 +17,131 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/common/Carousel';
+import formatDuration from '@/utils/formatDuration';
+import ContentCard from '@/components/common/ContentCard';
+import ToggleButton from '@/components/common/ToggleButton';
+import Link from 'next/link';
+import Icon from '@/icons/Icon';
+import { EventTypeKey, SortType } from '@/types/event';
+import { mockPerformances, mockExhibitions } from '@/data/mockEvent';
+
+type EndPoint = 'recommended' | 'picks';
+
+interface EventContextType {
+  eventType: EventTypeKey;
+  setEventType: Dispatch<SetStateAction<EventTypeKey>>;
+  sortType?: SortType;
+  endPoint?: EndPoint;
+}
+
+const EventContext = createContext<EventContextType | undefined>(undefined);
+
+const useEventContext = () => {
+  const context = useContext(EventContext);
+  if (!context) {
+    throw new Error(
+      'useEventContext must be used within EventCarouselContainer'
+    );
+  }
+  return context;
+};
+
+interface EventCarouselContainerProps {
+  children: ReactElement[];
+  initialEventType: EventTypeKey;
+  sortType?: SortType;
+  endPoint?: EndPoint;
+}
+
+const EventCarouselContainer = ({
+  children,
+  initialEventType,
+  sortType,
+  endPoint,
+}: EventCarouselContainerProps) => {
+  const [eventType, setEventType] = useState<EventTypeKey>(initialEventType);
+
+  return (
+    <EventContext.Provider
+      value={{ eventType, setEventType, sortType, endPoint }}
+    >
+      <div className='flex flex-col gap-y-[20px]'>{children}</div>
+    </EventContext.Provider>
+  );
+};
+
+interface EventCarouselHeaderProps {
+  title: string;
+  isEventTypeVisible?: boolean;
+}
+
+const EventCarouselHeader = ({
+  title,
+  isEventTypeVisible = false,
+}: EventCarouselHeaderProps) => {
+  const { eventType, setEventType, sortType, endPoint } = useEventContext();
+  const Container = sortType ? (Link as React.ElementType) : 'div';
+
+  return (
+    <div className='flex items-center justify-between'>
+      <Container
+        {...(sortType
+          ? {
+              href: `/search?eventType=${eventType}&sortType=${sortType}`,
+            }
+          : {})}
+        className='flex items-center gap-x-2'
+      >
+        <h2 className='font-paperlogy font-normal'>{title}</h2>
+        {sortType && (
+          <Icon size={20} name='ARROW_RIGHT' className='stroke-[2px]' />
+        )}
+      </Container>
+      {isEventTypeVisible && (
+        <div>
+          <ToggleButton
+            text='공연'
+            iconName='PERFORMANCE'
+            isSelected={eventType === 'performance'}
+            onClick={() => setEventType('performance')}
+          />
+          <ToggleButton
+            text='전시'
+            iconName='EXHIBITION'
+            isSelected={eventType === 'exhibition'}
+            onClick={() => setEventType('exhibition')}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
 
 interface EventCarouselProps {
   isRankVisible?: boolean;
-  events: {
-    id: number;
-    title: string;
-    place: string;
-    startDate: string;
-    endDate: string;
-    imageUrl: string;
-  }[];
 }
 
-const EventCarousel = ({
-  isRankVisible = false,
-  events,
-}: EventCarouselProps) => {
+interface Event {
+  id: number;
+  title: string;
+  place: string;
+  startDate: string;
+  endDate: string;
+  imageUrl: string;
+}
+
+const EventCarousel = ({ isRankVisible = false }: EventCarouselProps) => {
+  const [events, setEvents] = useState<Event[]>([]);
+  const { eventType, sortType, endPoint } = useEventContext();
   const [windowWidth, setWindowWidth] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (eventType === 'performance') {
+      setEvents(mockPerformances);
+    } else {
+      setEvents(mockExhibitions);
+    }
+  }, [eventType]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -83,4 +196,4 @@ const EventCarousel = ({
   );
 };
 
-export default EventCarousel;
+export { EventCarouselContainer, EventCarouselHeader, EventCarousel };

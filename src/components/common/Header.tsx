@@ -61,7 +61,7 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
         <div className='flex-[1]'></div>
       </div>
 
-      <div className='mr-7 flex flex-[1] items-center justify-end gap-3'>
+      <div className='mr-[34px] flex flex-[1] items-center justify-end gap-3'>
         <div className='relative'>
           <button
             className='group flex h-[36px] w-[36px] items-center justify-center rounded-40 hover:bg-primary-main100'
