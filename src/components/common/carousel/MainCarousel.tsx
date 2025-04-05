@@ -9,7 +9,7 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselApi,
-} from '@/components/common/Carousel';
+} from '@/components/common/carousel/Carousel';
 import { cn } from '@/lib/utils';
 
 interface MainCarouselProps {

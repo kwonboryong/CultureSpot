@@ -16,10 +16,10 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@/components/common/Carousel';
+} from '@/components/common/carousel/Carousel';
 import formatDuration from '@/utils/formatDuration';
 import ContentCard from '@/components/common/ContentCard';
-import ToggleButton from '@/components/common/ToggleButton';
+import ToggleButton from '@/components/common/button/ToggleButton';
 import Link from 'next/link';
 import Icon from '@/icons/Icon';
 import { EventTypeKey, SortType } from '@/types/event';

@@ -1,9 +1,9 @@
 'use client';
 import { useState } from 'react';
-import { Button } from '@/components/common/Button';
+import { Button } from '@/components/common/button/Button';
 import Input from '@/components/common/Input';
 import Icon from '@/icons/Icon';
-import ToggleButton from '@/components/common/ToggleButton';
+import ToggleButton from '@/components/common/button/ToggleButton';
 import AvatarProfile from '@/components/common/AvatarProfile';
 import { GENRES } from '@/constants/event';
 import { GenreName } from '@/types/event';

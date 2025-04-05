@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 import React from 'react';
-import NavigationBar from '@/components/common/NavigationBar';
+import NavigationBar from '@/components/common/navbar/NavigationBar';
 import ModalContainer from '@/components/modal/ModalContainer';
 
 export const metadata = {

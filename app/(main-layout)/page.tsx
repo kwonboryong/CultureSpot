@@ -1,12 +1,10 @@
-'use client';
-
-import MainCarousel from '@/components/common/MainCarousel';
+import MainCarousel from '@/components/common/carousel/MainCarousel';
 import { mockAdvertisements } from '@/data/mockAdvertisement';
 import {
   EventCarouselContainer,
   EventCarouselHeader,
   EventCarousel,
-} from '@/components/common/EventCarousel';
+} from '@/components/common/carousel/EventCarousel';
 import { mockCurrentUser } from '@/data/mockUser';
 
 const Home = () => {

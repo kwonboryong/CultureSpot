@@ -2,7 +2,7 @@
 import * as React from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/common/Button';
+import { Button } from '@/components/common/button/Button';
 
 const Dialog = DialogPrimitive.Root;
 const DialogPortal = DialogPrimitive.Portal;
