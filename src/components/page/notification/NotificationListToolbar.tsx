@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import ListToolbar from '@/components/common/ListToolbar';
-import { Button } from '@/components/common/Button';
+import { Button } from '@/components/common/button/Button';
 
 interface NotificationListToolbarProps {
   unreadCount: number;

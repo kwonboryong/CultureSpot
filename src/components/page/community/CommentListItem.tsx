@@ -1,6 +1,6 @@
 'use client';
 import { Comment } from '@/types/comment';
-import EditDeleteButton from '@/components/common/EditDeleteButton';
+import EditDeleteButton from '@/components/common/button/EditDeleteButton';
 import formatDate from '@/utils/formatDate';
 import Avatar from 'boring-avatars';
 import { mockCurrentUser } from '@/data/mockUser';

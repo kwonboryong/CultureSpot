@@ -1,8 +1,8 @@
 'use client';
 
-import Header from '@/components/common/Header';
-import React, { useState, useEffect } from 'react';
-import Sidebar from '@/components/common/Sidebar';
+import Header from '@/components/common/navbar/Header';
+import React, { useState } from 'react';
+import Sidebar from '@/components/common/navbar/Sidebar';
 import {
   GENERAL_SIDEBAR_ITEMS,
   MYPAGE_SIDEBAR_ITEMS,
