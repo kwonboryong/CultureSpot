@@ -1,4 +1,4 @@
-import { GenreName } from '@/types/event';
+import { GenreName, EventTypeValue } from '@/types/event';
 
 export const eventTypes = {
   performance: '공연',
@@ -22,7 +22,7 @@ export const genreNames = [
 ] as const;
 
 interface Genre {
-  type: string;
+  type: EventTypeValue;
   name: GenreName;
 }
 
