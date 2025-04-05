@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import EditDeleteButton from 'src/components/common/EditDeleteButton';
-import { cn } from 'src/lib/utils';
-import Rating from 'src/components/page/ticketbook/Rating';
-import styles from './TicketbookDetail.module.css';
+import EditDeleteButton from '@/components/common/button/EditDeleteButton';
+import { cn } from '@/lib/utils';
+import Rating from '@/components/page/ticketbook/Rating';
+import styles from '@/components/page/ticketbook/TicketbookDetail.module.css';
 import Avatar from 'boring-avatars';
-import { TicketbookDetail } from '@/types/ticketbook';
+import type { TicketbookDetail as TicketbooktDetailType } from '@/types/ticketbook';
 import Link from 'next/link';
 import formatDate from '@/utils/formatDate';
 import { mockCurrentUser } from '@/data/mockUser';
@@ -26,7 +26,7 @@ const TicketbookDetail = ({
   ticketbookContent,
   ticketbookCreatedAt,
   ticketbookUpdatedAt,
-}: TicketbookDetail) => {
+}: TicketbooktDetailType) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const divRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState<number>(0);
