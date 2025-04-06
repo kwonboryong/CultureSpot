@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 import React from 'react';
-import LogoAnimation from '@/components/common/LogoAnimation';
+import RotatingLogo from '@/components/system/RotatingLogo';
 
 export const metadata = {
   title: '로그인 - My Next.js App',
@@ -14,7 +14,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
         <main className='mt-[18vh] flex w-full flex-col items-center caret-transparent'>
           <img src='/assets/Logo.svg' alt='CultureSpot 로고' />
           <p className='pt-4'>로그인 후 더 많은 서비스를 사용해보세요</p>
-          <LogoAnimation />
+          <RotatingLogo isAnimating={true} variant='authLogo' />
           {children}
         </main>
       </body>
