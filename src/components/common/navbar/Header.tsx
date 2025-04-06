@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useRef, useEffect, useState } from 'react';
 import NotificationPopup from '@/components/page/notification/NotificationPopup';
 import { mockNotificationInfo } from '@/data/mockNotification';
+import HeaderLogo from '../HeaderLogo';
 
 type HeaderProps = {
   onToggleSidebar: () => void;
@@ -35,7 +36,7 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
   }, []);
 
   return (
-    <header className='fixed left-0 top-0 z-50 flex h-20 w-full items-center bg-bg'>
+    <header className='fixed top-0 left-0 z-50 flex items-center w-full h-20 bg-bg'>
       <div className='flex w-[90px] flex-shrink-0 items-center justify-center'>
         <button
           onClick={onToggleSidebar}
@@ -51,11 +52,7 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
       <div className='flex flex-[1] items-center justify-between gap-x-[15px] pr-[15px] lg:pr-[40px]'>
         <div className='flex-[4]'>
           <Link href={'/'}>
-            <img
-              src='/assets/logo.svg'
-              className='h-9 w-[200px] min-w-[200px] cursor-pointer'
-              alt='logo'
-            />
+            <HeaderLogo />
           </Link>
         </div>
 
