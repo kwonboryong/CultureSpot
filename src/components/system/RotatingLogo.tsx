@@ -1,10 +1,6 @@
 'use client';
-import { motion } from 'framer-motion';
-
-interface RotatingLogoProps {
-  isAnimating?: boolean;
-  variant?: LogoVariant;
-}
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect } from 'react';
 
 type LogoVariant = 'headerLogo' | 'authLogo';
 
@@ -13,23 +9,43 @@ const sizeVariants: Record<LogoVariant, string> = {
   authLogo: 'w-44 m-11',
 };
 
+interface RotatingLogoProps {
+  isAnimating?: boolean;
+  variant?: LogoVariant;
+}
+
 const RotatingLogo = ({
   isAnimating = false,
   variant = 'headerLogo',
 }: RotatingLogoProps) => {
-  const sizeClass = sizeVariants[variant] || sizeVariants.headerLogo;
+  const controls = useAnimation();
+  const sizeClass = sizeVariants[variant];
+
+  useEffect(() => {
+    controls.start(
+      isAnimating
+        ? {
+            rotateY: 360,
+            transition: {
+              duration: 2,
+              repeat: Infinity,
+              repeatType: 'loop',
+              ease: 'backInOut',
+            },
+          }
+        : {
+            rotateY: 0,
+            transition: { duration: 1, ease: 'easeOut' },
+          }
+    );
+  }, [isAnimating, controls]);
 
   return (
     <motion.img
       src='/assets/logo-icon.svg'
       alt='CultureSpot 로고 아이콘'
       className={sizeClass}
-      animate={isAnimating ? { rotateY: [0, 360] } : { rotateY: 0 }}
-      transition={{
-        duration: 2,
-        repeat: Infinity,
-        ease: 'backInOut',
-      }}
+      animate={controls}
     />
   );
 };
