@@ -7,14 +7,13 @@ import {
   GENERAL_SIDEBAR_ITEMS,
   MYPAGE_SIDEBAR_ITEMS,
 } from '@/constants/sidebarItems';
-import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 
 const NavigationBar = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const toggleSidebar = () => {
-    setIsCollapsed((prev) => !prev);
+    setIsSidebarOpen((prev) => !prev);
   };
 
   return (
@@ -27,17 +26,11 @@ const NavigationBar = ({ children }: { children: React.ReactNode }) => {
             ? MYPAGE_SIDEBAR_ITEMS
             : GENERAL_SIDEBAR_ITEMS
         }
-        className='fixed left-0 top-20 z-50'
-        isCollapsed={isCollapsed}
+        isSidebarOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
-      <div
-        className={cn(
-          isCollapsed ? 'pl-[90px]' : 'pl-[200px]',
-          'pt-[80px]',
-          'z-40'
-        )}
-      >
-        <div>{children}</div>
+      <div className='z-40 pl-[90px] pt-[80px]'>
+        <div className='px-[15px] lg:px-[40px]'>{children}</div>
       </div>
     </div>
   );

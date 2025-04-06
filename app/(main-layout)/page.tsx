@@ -10,7 +10,7 @@ import { mockCurrentUser } from '@/data/mockUser';
 const Home = () => {
   const { username } = mockCurrentUser;
   return (
-    <div className='p-[0px_16px_16px] lg:p-[0px_34px_34px]'>
+    <div>
       <MainCarousel items={mockAdvertisements} />
       <div className='flex flex-col gap-y-[20px] pt-[60px]'>
         <EventCarouselContainer

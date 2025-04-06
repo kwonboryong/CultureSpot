@@ -6,13 +6,13 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import Icon from '@/icons/Icon';
 
 const searchBarVariants = cva(
-  'flex h-9 w-full px-4 py-1 text-sm transition-colors focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm',
+  'flex h-9 w-full pl-4 pr-10 py-1 text-sm transition-colors focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm',
   {
     variants: {
       variant: {
         header: 'bg-bg-light rounded-3xl',
         community: 'bg-white rounded-5 border border-border',
-        detail: 'bg-primary-main100 rounded-3xl pl-14 pr-12',
+        detail: 'bg-primary-main100 rounded-3xl pl-14',
       },
     },
     defaultVariants: {
@@ -31,7 +31,7 @@ const SearchBar = ({ variant, className, ...props }: SearchInputProps) => {
   const isDetail = variant === 'detail';
 
   return (
-    <div className='relative w-full'>
+    <div className={cn('relative w-full', className)}>
       <button
         type='button'
         className={cn(
@@ -55,14 +55,14 @@ const SearchBar = ({ variant, className, ...props }: SearchInputProps) => {
       <input
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        className={cn(searchBarVariants({ variant }), className)}
+        className={cn(searchBarVariants({ variant }))}
         {...props}
       />
 
       {isDetail && inputValue && (
         <button
           type='button'
-          className='absolute -translate-y-1/2 right-3 top-1/2 text-primary'
+          className='absolute right-3 top-1/2 -translate-y-1/2 text-primary'
           onClick={() => setInputValue('')}
         >
           <Icon name='CLOSE' size={13} />

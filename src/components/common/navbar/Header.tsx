@@ -35,67 +35,70 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
   }, []);
 
   return (
-    <header className='fixed left-0 top-0 z-50 flex h-20 w-full items-center justify-between bg-bg'>
-      <div className='flex-[3]'>
-        <div className='mx-[34px] flex w-[280px] gap-10'>
-          <button onClick={onToggleSidebar}>
-            <Icon
-              name='HAMBURGER_MENU'
-              size={22}
-              className='stroke-text-sub stroke-[2px]'
-            />
-          </button>
-
+    <header className='fixed left-0 top-0 z-50 flex h-20 w-full items-center bg-bg'>
+      <div className='flex w-[90px] flex-shrink-0 items-center justify-center'>
+        <button
+          onClick={onToggleSidebar}
+          className='rounded-full p-[10px] hover:bg-black/10'
+        >
+          <Icon
+            name='HAMBURGER_MENU'
+            size={22}
+            className='stroke-text-sub stroke-[2px]'
+          />
+        </button>
+      </div>
+      <div className='flex flex-[1] items-center justify-between gap-x-[15px] pr-[15px] lg:pr-[40px]'>
+        <div className='flex-[4]'>
           <Link href={'/'}>
             <img
               src='/assets/logo.svg'
-              className='h-9 w-60 cursor-pointer'
+              className='h-9 w-[200px] min-w-[200px] cursor-pointer'
               alt='logo'
             />
           </Link>
         </div>
-      </div>
 
-      <div className='flex flex-[4]'>
-        <SearchBar className='min-w-[300px] flex-[1]' />
-        <div className='flex-[1]'></div>
-      </div>
-
-      <div className='mr-[34px] flex flex-[1] items-center justify-end gap-3'>
-        <div className='relative'>
-          <button
-            className='group flex h-[36px] w-[36px] items-center justify-center rounded-40 hover:bg-primary-main100'
-            onClick={() => setIsNotificationPopupOpen((prev) => !prev)}
-            ref={notificationRef}
-          >
-            <Icon
-              name='NOTIFICATION'
-              size={23}
-              className='stroke-text-sub stroke-[2px] group-hover:stroke-primary'
-            />
-          </button>
-          {isNotificationPopupOpen && (
-            <NotificationPopup notificationInfo={mockNotificationInfo} />
-          )}
+        <div className='flex flex-[3]'>
+          <SearchBar className='min-w-[250px] max-w-[500px]' variant='header' />
         </div>
-        <Dropdown
-          type='link'
-          buttonText={
-            <Avatar name={String(profileCode)} variant='beam' size={36} />
-          }
-          menuItems={[
-            {
-              label: '마이페이지',
-              onClick: () => router.push('/my/dashboard'),
-            },
-            { label: '로그아웃', onClick: onClickLogout },
-          ]}
-          buttonWidth='fit'
-          hideButtonBorder
-          hideIcon
-          hideButtonHover
-          hideButtonPadding
-        />
+
+        <div className='flex flex-[4] items-center justify-end gap-3'>
+          <div className='relative'>
+            <button
+              className='group flex h-[36px] w-[36px] items-center justify-center rounded-40 hover:bg-primary-main100'
+              onClick={() => setIsNotificationPopupOpen((prev) => !prev)}
+              ref={notificationRef}
+            >
+              <Icon
+                name='NOTIFICATION'
+                size={23}
+                className='stroke-text-sub stroke-[2px] group-hover:stroke-primary'
+              />
+            </button>
+            {isNotificationPopupOpen && (
+              <NotificationPopup notificationInfo={mockNotificationInfo} />
+            )}
+          </div>
+          <Dropdown
+            type='link'
+            buttonText={
+              <Avatar name={String(profileCode)} variant='beam' size={36} />
+            }
+            menuItems={[
+              {
+                label: '마이페이지',
+                onClick: () => router.push('/my/dashboard'),
+              },
+              { label: '로그아웃', onClick: onClickLogout },
+            ]}
+            buttonWidth='fit'
+            hideButtonBorder
+            hideIcon
+            hideButtonHover
+            hideButtonPadding
+          />
+        </div>
       </div>
     </header>
   );

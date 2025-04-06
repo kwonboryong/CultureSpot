@@ -9,6 +9,7 @@ export type SidebarItem = {
 };
 
 export const GENERAL_SIDEBAR_ITEMS: SidebarItem[] = [
+  { iconName: 'HOME', label: '홈', url: '/' },
   { iconName: 'PERFORMANCE', label: '공연 정보', url: '/performance' },
   { iconName: 'EXHIBITION', label: '전시 정보', url: '/exhibition' },
   { iconName: 'COMMUNITY', label: '커뮤니티', url: '/community' },

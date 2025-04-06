@@ -225,7 +225,7 @@ export const mockExhibitions = [
   {
     id: 23,
     type: 'exhibition',
-    title: '［얼리버드］현대카드 컬처프로젝트 29 톰 삭스 전',
+    title: '[얼리버드] 현대카드 컬처프로젝트 29 톰 삭스 전',
     place: '동대문디자인플라자 뮤지엄',
     startDate: '2025.04.25',
     endDate: '2025.07.25',
@@ -255,7 +255,7 @@ export const mockExhibitions = [
   {
     id: 26,
     type: 'exhibition',
-    title: '［20% 할인＋무하 음료 증정］알폰스 무하 원화전',
+    title: '[20% 할인＋무하 음료 증정] 알폰스 무하 원화전',
     place: '마이아트뮤지엄',
     startDate: '2025.03.20',
     endDate: '2025.07.13',
@@ -265,7 +265,7 @@ export const mockExhibitions = [
   {
     id: 27,
     type: 'exhibition',
-    title: '［북촌］2025년 3월~4월_어둠속의대화(DIALOGUE IN THE DARK)',
+    title: '[북촌] 2025년 3월~4월_어둠속의대화(DIALOGUE IN THE DARK)',
     place: '북촌 어둠속의대화',
     startDate: '2010.01.20',
     endDate: '오픈런',
@@ -275,7 +275,7 @@ export const mockExhibitions = [
   {
     id: 28,
     type: 'exhibition',
-    title: '［예매할인 20% / 6~7월］ 워너 브롱크호스트',
+    title: '[예매할인 20% / 6~7월] 워너 브롱크호스트',
     place: '그라운드시소 서촌',
     startDate: '2025.06.01',
     endDate: '2025.07.31',
@@ -285,7 +285,7 @@ export const mockExhibitions = [
   {
     id: 29,
     type: 'exhibition',
-    title: '［최대 30%할인］ 디즈니 100년 특별전',
+    title: '[최대 30%할인] 디즈니 100년 특별전',
     place: 'K현대미술관',
     startDate: '2024.10.18',
     endDate: '2025.06.01',
@@ -295,7 +295,7 @@ export const mockExhibitions = [
   {
     id: 30,
     type: 'exhibition',
-    title: '［얼리버드］ 퓰리처상 사진전 대구',
+    title: '[얼리버드] 퓰리처상 사진전 대구',
     place: '뮤씨엄 대구점',
     startDate: '2025.04.25',
     endDate: '2025.06.30',
@@ -325,7 +325,7 @@ export const mockExhibitions = [
   {
     id: 33,
     type: 'exhibition',
-    title: '［얼리버드］현대카드 컬처프로젝트 29 톰 삭스 전',
+    title: '[얼리버드] 현대카드 컬처프로젝트 29 톰 삭스 전',
     place: '동대문디자인플라자 뮤지엄',
     startDate: '2025.04.25',
     endDate: '2025.07.25',
@@ -355,7 +355,7 @@ export const mockExhibitions = [
   {
     id: 36,
     type: 'exhibition',
-    title: '［20% 할인＋무하 음료 증정］알폰스 무하 원화전',
+    title: '[20% 할인＋무하 음료 증정] 알폰스 무하 원화전',
     place: '마이아트뮤지엄',
     startDate: '2025.03.20',
     endDate: '2025.07.13',
@@ -365,7 +365,7 @@ export const mockExhibitions = [
   {
     id: 37,
     type: 'exhibition',
-    title: '［북촌］2025년 3월~4월_어둠속의대화(DIALOGUE IN THE DARK)',
+    title: '[북촌] 2025년 3월~4월_어둠속의대화(DIALOGUE IN THE DARK)',
     place: '북촌 어둠속의대화',
     startDate: '2010.01.20',
     endDate: '오픈런',
@@ -375,7 +375,7 @@ export const mockExhibitions = [
   {
     id: 38,
     type: 'exhibition',
-    title: '［예매할인 20% / 6~7월］ 워너 브롱크호스트',
+    title: '[예매할인 20% / 6~7월] 워너 브롱크호스트',
     place: '그라운드시소 서촌',
     startDate: '2025.06.01',
     endDate: '2025.07.31',
@@ -385,7 +385,7 @@ export const mockExhibitions = [
   {
     id: 39,
     type: 'exhibition',
-    title: '［최대 30%할인］ 디즈니 100년 특별전',
+    title: '[최대 30%할인] 디즈니 100년 특별전',
     place: 'K현대미술관',
     startDate: '2024.10.18',
     endDate: '2025.06.01',
@@ -395,7 +395,7 @@ export const mockExhibitions = [
   {
     id: 40,
     type: 'exhibition',
-    title: '［얼리버드］ 퓰리처상 사진전 대구',
+    title: '[얼리버드] 퓰리처상 사진전 대구',
     place: '뮤씨엄 대구점',
     startDate: '2025.04.25',
     endDate: '2025.06.30',

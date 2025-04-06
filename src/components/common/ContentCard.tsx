@@ -104,9 +104,9 @@ const ContentCard = ({
       </CardHeader>
       <CardContent className='h-[140px]'>
         <Link href={`/events/${id}`}>
-          <CardTitle className='line-clamp-2'>{title}</CardTitle>
-          <p className='line-clamp-2 text-sm text-text'>{place}</p>
-          <p className='line-clamp-2 text-caption text-text-sub'>{date}</p>
+          <CardTitle className='line-clamp-1'>{title}</CardTitle>
+          <p className='line-clamp-1 text-sm text-text'>{place}</p>
+          <p className='line-clamp-1 text-caption text-text-sub'>{date}</p>
         </Link>
       </CardContent>
     </Card>
