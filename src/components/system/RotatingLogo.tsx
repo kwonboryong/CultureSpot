@@ -1,12 +1,22 @@
 'use client';
 import { motion } from 'framer-motion';
 
-const sizeVariants = {
+interface RotatingLogoProps {
+  isAnimating?: boolean;
+  variant?: LogoVariant;
+}
+
+type LogoVariant = 'headerLogo' | 'authLogo';
+
+const sizeVariants: Record<LogoVariant, string> = {
   headerLogo: 'w-8 m-3',
   authLogo: 'w-44 m-11',
 };
 
-const RotatingLogo = ({ isAnimating = false, variant = 'headerLogo' }) => {
+const RotatingLogo = ({
+  isAnimating = false,
+  variant = 'headerLogo',
+}: RotatingLogoProps) => {
   const sizeClass = sizeVariants[variant] || sizeVariants.headerLogo;
 
   return (
