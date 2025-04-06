@@ -92,9 +92,9 @@ const EventCarouselHeader = ({
           : {})}
         className='flex items-center gap-x-2'
       >
-        <h2 className='font-paperlogy font-normal'>{title}</h2>
+        <div className='font-paperlogy text-[22px]'>{title}</div>
         {sortType && (
-          <Icon size={20} name='ARROW_RIGHT' className='stroke-[2px]' />
+          <Icon size={18} name='ARROW_RIGHT' className='stroke-[2px]' />
         )}
       </Container>
       {isEventTypeVisible && (
