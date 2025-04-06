@@ -1,49 +1,23 @@
 'use client';
-import { motion, useAnimation } from 'framer-motion';
 import { useState } from 'react';
+import RotatingLogo from '../system/RotatingLogo';
 
 const HeaderLogo = () => {
-  const controls = useAnimation();
-  const [, setIsHover] = useState(false);
-
-  const startRotate = () => {
-    setIsHover(true);
-
-    controls.start({
-      rotateY: [0, 360],
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        ease: 'backInOut',
-      },
-    });
-  };
-
-  const stopRotate = () => {
-    setIsHover(false);
-
-    controls.stop();
-    controls.set({ rotateY: 0 });
-  };
+  const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <motion.div
+    <div
       className='flex items-center cursor-pointer'
-      onMouseEnter={startRotate}
-      onMouseLeave={stopRotate}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
     >
-      <motion.img
-        src='/assets/logo-icon.svg'
-        alt='CultureSpot 로고 아이콘'
-        className='w-8 m-3'
-        animate={controls}
-      />
+      <RotatingLogo isAnimating={isHovering} variant='headerLogo' />
       <img
         src='/assets/title.svg'
         alt='CultureSpot 텍스트 로고'
         className='w-[170px]'
       />
-    </motion.div>
+    </div>
   );
 };
 
