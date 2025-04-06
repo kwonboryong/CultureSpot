@@ -10,15 +10,19 @@ const SessionEffect = () => {
   const router = useRouter();
 
   useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+
     if (sessionExpired) {
       toast.error('세션이 만료되었습니다. 다시 로그인해 주세요.');
 
-      setTimeout(() => {
+      timeoutId = setTimeout(() => {
         router.push('/login');
 
         resetSession();
       }, 1500);
     }
+
+    return () => clearTimeout(timeoutId);
   }, [sessionExpired]);
 
   return null;
