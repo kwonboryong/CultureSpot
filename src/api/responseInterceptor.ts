@@ -1,5 +1,6 @@
 import { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import { isPublicEndpoint } from '@/lib/isPublicEndpoint';
+import { useSessionStore } from '@/stores/sessionStore';
 
 interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
   _retry?: boolean;
@@ -28,7 +29,12 @@ export const responseRejectInterceptor = async (error: AxiosError) => {
     // AccessToken 제거하고 로그인 페이지로 이동
     localStorage.removeItem('AccessToken');
 
-    window.location.href = '/login';
+    // state로 세션 만료 표시
+    if (typeof window !== 'undefined') {
+      const { setSessionExpired } = useSessionStore.getState();
+
+      setSessionExpired();
+    }
 
     return Promise.reject(error);
   }

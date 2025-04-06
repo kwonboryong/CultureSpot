@@ -2,6 +2,8 @@ import '@/styles/globals.css';
 import React from 'react';
 import NavigationBar from '@/components/common/navbar/NavigationBar';
 import ModalContainer from '@/components/modal/ModalContainer';
+import { Toaster } from 'react-hot-toast';
+import SessionEffect from '@/components/system/SessionEffect';
 
 export const metadata = {
   title: 'My Next.js App',
@@ -12,6 +14,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='en'>
       <body>
+        <Toaster />
+        <SessionEffect />
         <NavigationBar>{children}</NavigationBar>
         <ModalContainer />
       </body>
