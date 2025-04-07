@@ -6,6 +6,7 @@ import {
   EventCarousel,
 } from '@/components/common/carousel/EventCarousel';
 import { mockCurrentUser } from '@/data/mockUser';
+import Footer from '@/components/common/Footer';
 
 const Home = () => {
   const { username } = mockCurrentUser;
@@ -45,6 +46,7 @@ const Home = () => {
           <EventCarouselHeader title="MD's PICK!" isEventTypeVisible />
           <EventCarousel />
         </EventCarouselContainer>
+        <Footer />
       </div>
     </div>
   );
