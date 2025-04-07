@@ -37,11 +37,11 @@ const Profile = () => {
   };
 
   return (
-    <div className='mx-auto flex w-[400px] flex-col items-center justify-center gap-3 p-5'>
+    <div className='flex flex-col items-center justify-center gap-3 p-5 mx-auto w-96'>
       <p className='text-h3'>회원 정보 수정</p>
       <AvatarProfile />
 
-      <form action='' className='flex flex-col gap-5 p-2'>
+      <form action='' className='flex flex-col gap-5 p-3'>
         <Input
           type='email'
           placeholder='기존 이메일 값'
@@ -60,7 +60,7 @@ const Profile = () => {
           onChange={(e) => setNickname(e.target.value)}
         />
 
-        <div className='pt-2'>
+        <div className='py-4'>
           <p className='pb-1'>관심 장르 설정</p>
           {GENRES.map((genre, i) => (
             <ToggleButton
@@ -73,7 +73,7 @@ const Profile = () => {
         </div>
       </form>
 
-      <div className='flex w-full gap-3'>
+      <div className='flex w-[95%] gap-3'>
         <Button
           variant='secondary'
           children='취소'
