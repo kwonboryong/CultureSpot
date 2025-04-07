@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/common/button/Button';
 import Input from '@/components/common/Input';
-import Icon from '@/icons/Icon';
 import ToggleButton from '@/components/common/button/ToggleButton';
 import AvatarProfile from '@/components/common/AvatarProfile';
 import { GENRES } from '@/constants/event';
@@ -11,25 +10,13 @@ import { useModalStore } from '@/stores/useModalStore';
 
 const Profile = () => {
   const { openModal } = useModalStore();
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const [nickname, setNickname] = useState('');
   const [selectedGenres, setSelectedGenres] = useState<GenreName[]>([
     '전시',
     '연극',
     '무용',
   ]);
-
-  // 비밀번호 아이콘 핸들러
-  const togglePasswordVisibility = (type: 'password' | 'confirmPassword') => {
-    if (type === 'password') {
-      setShowPassword((prev) => !prev);
-      console.log('비밀번호 아이콘 클릭');
-    } else {
-      setShowConfirmPassword((prev) => !prev);
-      console.log('비밀번호 확인 아이콘 클릭');
-    }
-  };
 
   // 중복 확인
   const onCheckDuplicate = (e: React.MouseEvent) => {
@@ -61,41 +48,6 @@ const Profile = () => {
           readOnly
           onFocus={(e) => e.target.blur()}
         />
-        <Input
-          type='password'
-          placeholder='비밀번호'
-          icon={
-            <button
-              type='button'
-              onClick={() => togglePasswordVisibility('password')}
-              className='flex cursor-pointer'
-            >
-              <Icon
-                name={showPassword ? 'EYE' : 'EYE_SLASHED'}
-                size={20}
-                className='stroke-text-sub stroke-[2px]'
-              />
-            </button>
-          }
-        />
-        <Input
-          type='password'
-          placeholder='비밀번호 확인'
-          icon={
-            <button
-              type='button'
-              onClick={() => togglePasswordVisibility('confirmPassword')}
-              className='flex cursor-pointer'
-            >
-              <Icon
-                name={showConfirmPassword ? 'EYE' : 'EYE_SLASHED'}
-                size={20}
-                className='stroke-text-sub stroke-[2px]'
-              />
-            </button>
-          }
-        />
-
         <Input
           type='text'
           icon={
