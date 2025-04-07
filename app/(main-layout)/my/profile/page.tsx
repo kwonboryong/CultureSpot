@@ -37,7 +37,7 @@ const Profile = () => {
   };
 
   return (
-    <div className='mx-auto flex w-[30%] flex-col items-center justify-center gap-3 p-5'>
+    <div className='mx-auto flex w-[400px] flex-col items-center justify-center gap-3 p-5'>
       <p className='text-h3'>회원 정보 수정</p>
       <AvatarProfile />
 
