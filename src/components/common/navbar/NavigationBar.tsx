@@ -30,7 +30,7 @@ const NavigationBar = ({ children }: { children: React.ReactNode }) => {
         onClose={() => setIsSidebarOpen(false)}
       />
       <div className='z-40 pl-[90px] pt-[80px]'>
-        <div className='px-[15px] lg:px-[40px]'>{children}</div>
+        <div>{children}</div>
       </div>
     </div>
   );
