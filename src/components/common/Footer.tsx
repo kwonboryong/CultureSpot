@@ -5,7 +5,7 @@ import { FiMail } from 'react-icons/fi';
 
 const Footer = () => {
   return (
-    <footer className='mt-5 flex h-40 w-full select-none items-center bg-bg-light px-10'>
+    <footer className='mt-7 flex h-40 w-full select-none items-center bg-bg-light px-10'>
       <div className='flex w-full flex-row items-center justify-between'>
         <div>
           <Link href='/' className='flex items-center gap-2'>
