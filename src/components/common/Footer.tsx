@@ -34,7 +34,7 @@ const Footer = () => {
           >
             <SiConfluence size={25} />
           </a>
-          <a href='mailto:임시@gmail.com'>
+          <a href='mailto:culturespot.team@gmail.com'>
             <FiMail size={26} />
           </a>
         </div>
