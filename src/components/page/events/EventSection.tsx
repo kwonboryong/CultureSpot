@@ -7,7 +7,7 @@ import {
 import GenreSearchButton from '@/components/common/button/GenreSearchButton';
 import toKebabCase from '@/utils/toKebabCase';
 import { mockCurrentUser } from '@/data/mockUser';
-import { GROUPED_GENRES, GENRES_MAP, EVENT_TYPES_MAP } from '@/constants/event';
+import { GROUPED_GENRES, EVENT_TYPES_MAP } from '@/constants/event';
 import { EventTypeEn } from '@/types/event';
 
 interface EventSectionProps {
@@ -27,7 +27,7 @@ const EventSection = ({ eventType }: EventSectionProps) => {
         <h3 className='font-paperlogy text-[22px] font-normal'>카테고리</h3>
         <div className='mt-[20px] flex gap-x-[20px]'>
           {filteredGenres.map(({ genre }) => (
-            <GenreSearchButton key={genre} text={GENRES_MAP[genre]}>
+            <GenreSearchButton key={genre} genre={genre}>
               <Image
                 width={40}
                 height={40}
