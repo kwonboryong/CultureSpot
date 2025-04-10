@@ -12,7 +12,7 @@ const Home = () => {
   const { username } = mockCurrentUser;
   return (
     <div>
-      <div className='px-[40px]'>
+      <div className='px-[15px] lg:px-[40px]'>
         <MainCarousel items={mockAdvertisements} />
         <div className='flex flex-col gap-y-[20px] pt-[60px]'>
           <EventCarouselContainer
