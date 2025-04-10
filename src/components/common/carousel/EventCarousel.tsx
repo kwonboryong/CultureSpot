@@ -21,16 +21,17 @@ import formatDuration from '@/utils/formatDuration';
 import ContentCard from '@/components/common/ContentCard';
 import ToggleButton from '@/components/common/button/ToggleButton';
 import Link from 'next/link';
-import Icon from '@/icons/Icon';
-import { EventTypeKey, SortType } from '@/types/event';
+import Icon, { IconName } from '@/icons/Icon';
+import { EventTypeEn, EventTypeKo, EventSortTypeEn } from '@/types/event';
 import { mockPerformances, mockExhibitions } from '@/data/mockEvent';
+import { EVENT_TYPES_EN, EVENT_TYPES_MAP } from '@/constants/event';
 
 type EndPoint = 'recommended' | 'picks';
 
 interface EventContextType {
-  eventType: EventTypeKey;
-  setEventType: Dispatch<SetStateAction<EventTypeKey>>;
-  sortType?: SortType;
+  eventType: EventTypeEn;
+  setEventType: Dispatch<SetStateAction<EventTypeEn>>;
+  sortType?: EventSortTypeEn;
   endPoint?: EndPoint;
 }
 
@@ -48,8 +49,8 @@ const useEventContext = () => {
 
 interface EventCarouselContainerProps {
   children: ReactElement[];
-  initialEventType: EventTypeKey;
-  sortType?: SortType;
+  initialEventType: EventTypeEn;
+  sortType?: EventSortTypeEn;
   endPoint?: EndPoint;
 }
 
@@ -59,7 +60,7 @@ const EventCarouselContainer = ({
   sortType,
   endPoint,
 }: EventCarouselContainerProps) => {
-  const [eventType, setEventType] = useState<EventTypeKey>(initialEventType);
+  const [eventType, setEventType] = useState<EventTypeEn>(initialEventType);
 
   return (
     <EventContext.Provider
@@ -99,18 +100,15 @@ const EventCarouselHeader = ({
       </Container>
       {isEventTypeVisible && (
         <div>
-          <ToggleButton
-            text='공연'
-            iconName='PERFORMANCE'
-            isSelected={eventType === 'performance'}
-            onClick={() => setEventType('performance')}
-          />
-          <ToggleButton
-            text='전시'
-            iconName='EXHIBITION'
-            isSelected={eventType === 'exhibition'}
-            onClick={() => setEventType('exhibition')}
-          />
+          {EVENT_TYPES_EN.map((eventTypeEn) => (
+            <ToggleButton
+              key={eventTypeEn}
+              text={EVENT_TYPES_MAP[eventTypeEn]}
+              iconName={eventTypeEn.toUpperCase() as IconName}
+              isSelected={eventTypeEn === eventType}
+              onClick={() => setEventType(eventTypeEn)}
+            />
+          ))}
         </div>
       )}
     </div>

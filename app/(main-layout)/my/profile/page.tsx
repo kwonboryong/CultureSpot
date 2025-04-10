@@ -4,18 +4,18 @@ import { Button } from '@/components/common/button/Button';
 import Input from '@/components/common/Input';
 import ToggleButton from '@/components/common/button/ToggleButton';
 import AvatarProfile from '@/components/common/AvatarProfile';
-import { GENRES } from '@/constants/event';
-import { GenreName } from '@/types/event';
+import { GENRES_EN, GENRES_MAP } from '@/constants/event';
+import { GenreEn } from '@/types/event';
 import { useModalStore } from '@/stores/useModalStore';
 
 const Profile = () => {
   const { openModal } = useModalStore();
 
   const [nickname, setNickname] = useState('');
-  const [selectedGenres, setSelectedGenres] = useState<GenreName[]>([
-    '전시',
-    '연극',
-    '무용',
+  const [selectedGenres, setSelectedGenres] = useState<GenreEn[]>([
+    'exhibition',
+    'theater',
+    'dance',
   ]);
 
   // 중복 확인
@@ -25,7 +25,7 @@ const Profile = () => {
   };
 
   // 장르 버튼 클릭 시 상태 업데이트
-  const onGenreClick = (genre: GenreName) => {
+  const onGenreClick = (genre: GenreEn) => {
     setSelectedGenres((prev) => {
       const updatedGenres = prev.includes(genre)
         ? prev.filter((g) => g !== genre)
@@ -37,7 +37,7 @@ const Profile = () => {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center gap-3 p-5 mx-auto w-96'>
+    <div className='mx-auto flex w-96 flex-col items-center justify-center gap-3 p-5'>
       <p className='text-h3'>회원 정보 수정</p>
       <AvatarProfile />
 
@@ -62,12 +62,12 @@ const Profile = () => {
 
         <div className='py-4'>
           <p className='pb-1'>관심 장르 설정</p>
-          {GENRES.map((genre, i) => (
+          {GENRES_EN.map((genre, i) => (
             <ToggleButton
               key={i}
-              text={genre.name}
-              onClick={() => onGenreClick(genre.name)}
-              isSelected={selectedGenres.includes(genre.name)}
+              text={GENRES_MAP[genre]}
+              onClick={() => onGenreClick(genre)}
+              isSelected={selectedGenres.includes(genre)}
             />
           ))}
         </div>
