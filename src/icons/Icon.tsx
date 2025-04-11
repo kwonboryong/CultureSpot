@@ -1,7 +1,7 @@
 import { ICON_PATHS } from './iconsPaths';
 import { cn } from 'src/lib/utils';
 
-type IconName = keyof typeof ICON_PATHS;
+export type IconName = keyof typeof ICON_PATHS;
 
 type IconProps = {
   name: IconName;

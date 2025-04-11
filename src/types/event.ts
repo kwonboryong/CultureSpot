@@ -1,12 +1,25 @@
-import { genreNames } from '@/constants/event';
-import { eventTypes, sortTypes } from './../constants/event';
+import {
+  EVENT_TYPES_EN,
+  EVENT_TYPES_KO,
+  EVENT_SORT_TYPES_EN,
+  EVENT_SORT_TYPES_KO,
+  GENRES_EN,
+  GENRES_KO,
+} from '@/constants/event';
 
-export type EventTypeKey = keyof typeof eventTypes;
-export type EventTypeValue = (typeof eventTypes)[keyof typeof eventTypes];
+export type EventTypeEn = (typeof EVENT_TYPES_EN)[number];
+export type EventTypeKo = (typeof EVENT_TYPES_KO)[number];
 
-export type SortType = (typeof sortTypes)[number];
+export type EventSortTypeEn = (typeof EVENT_SORT_TYPES_EN)[number];
+export type EventSortTypeKo = (typeof EVENT_SORT_TYPES_KO)[number];
 
-export type GenreName = (typeof genreNames)[number];
+export type GenreEn = (typeof GENRES_EN)[number];
+export type GenreKo = (typeof GENRES_KO)[number];
+
+export interface GroupedGenre {
+  eventType: EventTypeEn;
+  genre: GenreEn;
+}
 
 export interface EventSummary {
   eventId: number;

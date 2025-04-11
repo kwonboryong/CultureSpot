@@ -1,13 +1,32 @@
-import { GenreName, EventTypeValue } from '@/types/event';
+import { GroupedGenre } from '@/types/event';
+import createMapping from '@/utils/createMapping';
 
-export const eventTypes = {
-  performance: '공연',
-  exhibition: '전시',
-} as const;
+export const EVENT_TYPES_EN = ['performance', 'exhibition'] as const;
+export const EVENT_TYPES_KO = ['공연', '전시'] as const;
+export const EVENT_TYPES_MAP = createMapping(EVENT_TYPES_EN, EVENT_TYPES_KO);
 
-export const sortTypes = ['latest', 'popular', 'oldest'] as const;
+export const EVENT_SORT_TYPES_EN = ['latest', 'popular', 'exhibition'] as const;
+export const EVENT_SORT_TYPES_KO = ['최신순', '인기많은순', '과거순'] as const;
+export const EVENT_SORT_TYPES_MAP = createMapping(
+  EVENT_SORT_TYPES_EN,
+  EVENT_SORT_TYPES_KO
+);
 
-export const genreNames = [
+export const GENRES_EN = [
+  'exhibition',
+  'theater',
+  'music',
+  'dance',
+  'fineArts',
+  'architecture',
+  'visualMedia',
+  'literature',
+  'culturalPolicy',
+  'festival',
+  'others',
+] as const;
+
+export const GENRES_KO = [
   '전시',
   '연극',
   '음악',
@@ -21,21 +40,18 @@ export const genreNames = [
   '기타',
 ] as const;
 
-interface Genre {
-  type: EventTypeValue;
-  name: GenreName;
-}
+export const GENRES_MAP = createMapping(GENRES_EN, GENRES_KO);
 
-export const GENRES: Genre[] = [
-  { type: '공연', name: '전시' },
-  { type: '공연', name: '연극' },
-  { type: '공연', name: '음악' },
-  { type: '공연', name: '무용' },
-  { type: '공연', name: '미술' },
-  { type: '공연', name: '건축' },
-  { type: '공연', name: '영상' },
-  { type: '전시', name: '문학' },
-  { type: '전시', name: '문화 정책' },
-  { type: '전시', name: '축제' },
-  { type: '전시', name: '기타' },
+export const GROUPED_GENRES: GroupedGenre[] = [
+  { eventType: 'performance', genre: 'theater' },
+  { eventType: 'performance', genre: 'music' },
+  { eventType: 'performance', genre: 'dance' },
+  { eventType: 'performance', genre: 'festival' },
+  { eventType: 'exhibition', genre: 'exhibition' },
+  { eventType: 'exhibition', genre: 'fineArts' },
+  { eventType: 'exhibition', genre: 'architecture' },
+  { eventType: 'exhibition', genre: 'visualMedia' },
+  { eventType: 'exhibition', genre: 'literature' },
+  { eventType: 'exhibition', genre: 'culturalPolicy' },
+  { eventType: 'exhibition', genre: 'others' },
 ];
