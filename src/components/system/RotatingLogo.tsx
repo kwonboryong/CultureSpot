@@ -42,7 +42,7 @@ const RotatingLogo = ({
 
   return (
     <motion.img
-      src='/assets/logo-icon.svg'
+      src='/assets/logos/logo-icon.svg'
       alt='CultureSpot 로고 아이콘'
       className={sizeClass}
       animate={controls}

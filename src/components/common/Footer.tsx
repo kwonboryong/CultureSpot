@@ -5,12 +5,12 @@ import { FiMail } from 'react-icons/fi';
 
 const Footer = () => {
   return (
-    <footer className='mt-7 flex h-40 w-full select-none items-center bg-bg-light px-10'>
-      <div className='flex w-full flex-row items-center justify-between'>
+    <footer className='flex items-center w-full h-40 px-10 select-none mt-7 bg-bg-light'>
+      <div className='flex flex-row items-center justify-between w-full'>
         <div>
           <Link href='/' className='flex items-center gap-2'>
             <img
-              src='/assets/logo.svg'
+              src='/assets/logos/logo.svg'
               className='w-40'
               alt='CultureSpot 로고 아이콘'
             />

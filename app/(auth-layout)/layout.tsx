@@ -12,7 +12,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang='ko'>
       <body className='flex justify-center'>
         <main className='mt-[18vh] flex w-full flex-col items-center caret-transparent'>
-          <img src='/assets/Logo.svg' alt='CultureSpot 로고' />
+          <img src='/assets/logos/logo.svg' alt='CultureSpot 로고' />
           <p className='pt-4'>로그인 후 더 많은 서비스를 사용해보세요</p>
           <RotatingLogo isAnimating={true} variant='authLogo' />
           {children}
