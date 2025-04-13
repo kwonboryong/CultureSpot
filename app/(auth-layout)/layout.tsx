@@ -3,7 +3,7 @@ import React from 'react';
 import RotatingLogo from '@/components/system/RotatingLogo';
 
 export const metadata = {
-  title: '로그인 - My Next.js App',
+  title: '로그인 - Culture Spot',
   description: '로그인하여 더 많은 서비스를 이용해보세요.',
 };
 
