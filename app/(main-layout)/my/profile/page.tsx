@@ -19,13 +19,13 @@ const Profile = () => {
   ]);
 
   // 중복 확인
-  const onCheckDuplicate = (e: React.MouseEvent) => {
+  const handleCheckDuplicate = (e: React.MouseEvent) => {
     e.preventDefault();
     console.log('중복 확인 아이콘 클릭');
   };
 
   // 장르 버튼 클릭 시 상태 업데이트
-  const onGenreClick = (genre: GenreEn) => {
+  const handleGenreClick = (genre: GenreEn) => {
     setSelectedGenres((prev) => {
       const updatedGenres = prev.includes(genre)
         ? prev.filter((g) => g !== genre)
@@ -51,7 +51,7 @@ const Profile = () => {
         <Input
           type='text'
           icon='중복 확인'
-          onIconClick={onCheckDuplicate}
+          onIconClick={handleCheckDuplicate}
           placeholder='닉네임'
           value={nickname}
           onChange={(e) => setNickname(e.target.value)}
@@ -63,7 +63,7 @@ const Profile = () => {
             <ToggleButton
               key={i}
               text={GENRES_MAP[genre]}
-              onClick={() => onGenreClick(genre)}
+              onClick={() => handleGenreClick(genre)}
               isSelected={selectedGenres.includes(genre)}
             />
           ))}
