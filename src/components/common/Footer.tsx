@@ -23,20 +23,27 @@ const Footer = () => {
             © 2025 Culture Spot. All rights reserved.
           </p>
         </div>
-        <div className='flex gap-4'>
-          <a href='https://github.com/culturespot' target='_blank'>
+        <nav className='flex gap-4'>
+          <a
+            href='https://github.com/culturespot'
+            target='_blank'
+            rel='noopener noreferrer'
+            aria-label='GitHub'
+          >
             <FaGithub size={25} />
           </a>
           <a
             href='https://chopinoff.atlassian.net/wiki/spaces/CU/pages'
             target='_blank'
+            rel='noopener noreferrer'
+            aria-label='Confluence'
           >
             <SiConfluence size={25} />
           </a>
-          <a href='mailto:culturespot.team@gmail.com'>
+          <a href='mailto:culturespot.team@gmail.com' aria-label='Email'>
             <FiMail size={26} />
           </a>
-        </div>
+        </nav>
       </div>
     </footer>
   );
