@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import RotatingLogo from '../system/RotatingLogo';
+import RotatingLogo from '@/components/system/RotatingLogo';
 
 const HeaderLogo = () => {
   const [isHovering, setIsHovering] = useState(false);
