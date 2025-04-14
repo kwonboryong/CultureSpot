@@ -23,26 +23,38 @@ const Footer = () => {
             © 2025 Culture Spot. All rights reserved.
           </p>
         </div>
-        <nav className='flex gap-4'>
-          <a
-            href='https://github.com/culturespot'
-            target='_blank'
-            rel='noopener noreferrer'
-            aria-label='GitHub'
-          >
-            <FaGithub size={25} />
-          </a>
-          <a
-            href='https://chopinoff.atlassian.net/wiki/spaces/CU/pages'
-            target='_blank'
-            rel='noopener noreferrer'
-            aria-label='Confluence'
-          >
-            <SiConfluence size={25} />
-          </a>
-          <a href='mailto:culturespot.team@gmail.com' aria-label='Email'>
-            <FiMail size={26} />
-          </a>
+
+        <nav aria-label='CultureSpot 팀 소셜 미디어 링크'>
+          <ul className='flex gap-4'>
+            <li>
+              <a
+                href='https://github.com/culturespot'
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='CultureSpot 팀 GitHub'
+              >
+                <FaGithub size={25} />
+              </a>
+            </li>
+            <li>
+              <a
+                href='https://chopinoff.atlassian.net/wiki/spaces/CU/pages'
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='CultureSpot 팀 Confluence'
+              >
+                <SiConfluence size={25} />
+              </a>
+            </li>
+            <li>
+              <a
+                href='mailto:culturespot.team@gmail.com'
+                aria-label='CultureSpot 팀 Email'
+              >
+                <FiMail size={26} />
+              </a>
+            </li>
+          </ul>
         </nav>
       </div>
     </footer>
