@@ -37,7 +37,7 @@ const Profile = () => {
   };
 
   return (
-    <div className='mx-auto flex w-96 flex-col items-center justify-center gap-3 p-5'>
+    <div className='flex flex-col items-center justify-center gap-3 p-5 mx-auto w-96'>
       <p className='text-h3'>회원 정보 수정</p>
       <AvatarProfile />
 
@@ -50,11 +50,8 @@ const Profile = () => {
         />
         <Input
           type='text'
-          icon={
-            <button type='button' onClick={onCheckDuplicate}>
-              중복 확인
-            </button>
-          }
+          icon='중복 확인'
+          onIconClick={onCheckDuplicate}
           placeholder='닉네임'
           value={nickname}
           onChange={(e) => setNickname(e.target.value)}
