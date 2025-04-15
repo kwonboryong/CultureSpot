@@ -32,7 +32,6 @@ const SearchBar = ({ variant, className, ...props }: SearchInputProps) => {
 
   const isDetail = variant === 'detail';
 
-  // 검색 아이콘 클릭 시 실행
   const handleSearchClick = () => {
     if (inputValue.trim()) {
       router.push(`/search?query=${encodeURIComponent(inputValue)}`);

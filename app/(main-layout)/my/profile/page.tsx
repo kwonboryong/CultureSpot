@@ -18,13 +18,11 @@ const Profile = () => {
     'dance',
   ]);
 
-  // 중복 확인
   const handleCheckDuplicate = (e: React.MouseEvent) => {
     e.preventDefault();
     console.log('중복 확인 아이콘 클릭');
   };
 
-  // 장르 버튼 클릭 시 상태 업데이트
   const handleGenreClick = (genre: GenreEn) => {
     setSelectedGenres((prev) => {
       const updatedGenres = prev.includes(genre)
