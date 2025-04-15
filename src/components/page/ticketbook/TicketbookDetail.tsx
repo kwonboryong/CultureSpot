@@ -54,7 +54,7 @@ const TicketbookDetail = ({
   }, []);
 
   return (
-    <div className='pointer-events-auto -z-10 flex items-center justify-center'>
+    <div className='flex items-center justify-center pointer-events-auto -z-10'>
       <div
         ref={divRef}
         className={cn(
@@ -94,13 +94,13 @@ const TicketbookDetail = ({
               </div>
               <div className='jusitfy-center absolute flex h-full w-full items-end overflow-hidden pb-[50px] opacity-30'>
                 <img
-                  src='/assets/logo-icon.svg'
+                  src='/assets/logos/logo-icon.svg'
                   alt='logo-icon'
                   className='absolute bottom-[-10%] left-[30%] w-[80%] brightness-[500%] filter'
                 />
               </div>
               <div
-                className='absolute left-0 top-0 flex h-full w-full flex-col justify-end'
+                className='absolute top-0 left-0 flex flex-col justify-end w-full h-full'
                 style={{
                   padding: `${width * 0.02}px ${width * 0.03}px`,
                   gap: width * 0.02,
@@ -108,7 +108,7 @@ const TicketbookDetail = ({
               >
                 <Link href={`/${eventType}/${eventId}`} className='w-fit'>
                   <h1
-                    className='inline whitespace-pre-wrap font-paperlogy duration-150 hover:bg-bg-dark hover:bg-opacity-20'
+                    className='inline whitespace-pre-wrap duration-150 font-paperlogy hover:bg-bg-dark hover:bg-opacity-20'
                     style={{
                       fontSize: width * 0.04,
                     }}
@@ -145,7 +145,11 @@ const TicketbookDetail = ({
               className='flex justify-between'
               style={{ padding: `${width * 0.02}px ${width * 0.03}px` }}
             >
-              <img src='/assets/logo.svg' alt='logo' width={width * 0.15} />
+              <img
+                src='/assets/logos/logo.svg'
+                alt='logo'
+                width={width * 0.15}
+              />
               <p style={{ fontSize: width * 0.015 }}>CUL-{ticketbookId}</p>
             </div>
           </div>
@@ -156,7 +160,7 @@ const TicketbookDetail = ({
           >
             <div>
               <div
-                className='font-paperlogy font-semibold'
+                className='font-semibold font-paperlogy'
                 style={{
                   fontSize: width * 0.02,
                   paddingTop: width * 0.04,
@@ -166,7 +170,7 @@ const TicketbookDetail = ({
                 {eventTitle}
               </div>
               <div
-                className='items-ratinigt flex'
+                className='flex items-ratinigt'
                 style={{
                   fontSize: width * 0.015,
                   gap: width * 0.006,
@@ -182,7 +186,7 @@ const TicketbookDetail = ({
                 </p>
               </div>
               <div
-                className='items-ratinigt flex'
+                className='flex items-ratinigt'
                 style={{
                   fontSize: width * 0.015,
                   gap: width * 0.006,
@@ -194,7 +198,7 @@ const TicketbookDetail = ({
                 <p>{place}</p>
               </div>
               <div
-                className='items-ratinigt flex'
+                className='flex items-ratinigt'
                 style={{
                   fontSize: width * 0.015,
                   gap: width * 0.006,
@@ -207,9 +211,13 @@ const TicketbookDetail = ({
               </div>
             </div>
             <div className='flex items-end justify-between'>
-              <img src='/assets/logo.svg' alt='logo' width={width * 0.15} />
               <img
-                src='/assets/ticketbook-qr-code.png'
+                src='/assets/logos/logo.svg'
+                alt='logo'
+                width={width * 0.15}
+              />
+              <img
+                src='/assets/ui/ticketbook-qr-code.png'
                 width={width * 0.07}
                 alt='qr-code'
               />
@@ -234,11 +242,11 @@ const TicketbookDetail = ({
             className='flex flex-[1] flex-col justify-between rounded-l-5 border-r-[2px] border-dashed border-divider bg-bg'
             style={{ padding: width * 0.02, gap: width * 0.03 }}
           >
-            <div className='h-full w-full overflow-hidden rounded-5 bg-primary'>
-              <img src={posterUrl} className='h-full w-full object-cover' />
+            <div className='w-full h-full overflow-hidden rounded-5 bg-primary'>
+              <img src={posterUrl} className='object-cover w-full h-full' />
             </div>
 
-            <img src='/assets/logo.svg' alt='logo' width={width * 0.15} />
+            <img src='/assets/logos/logo.svg' alt='logo' width={width * 0.15} />
           </div>
 
           <div
@@ -250,7 +258,7 @@ const TicketbookDetail = ({
           >
             <Rating size={width * 0.02} fixedRate={rating} />
             <div
-              className='flex flex-shrink-0 items-center justify-between'
+              className='flex items-center justify-between flex-shrink-0'
               style={{ fontSize: width * 0.02 }}
             >
               <Link

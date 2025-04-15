@@ -4,6 +4,7 @@ import { InputHTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import Icon from '@/icons/Icon';
+import { useRouter } from 'next/navigation';
 
 const searchBarVariants = cva(
   'flex h-9 w-full pl-4 pr-10 py-1 text-sm transition-colors focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm',
@@ -27,8 +28,15 @@ interface SearchInputProps
 
 const SearchBar = ({ variant, className, ...props }: SearchInputProps) => {
   const [inputValue, setInputValue] = useState('');
+  const router = useRouter();
 
   const isDetail = variant === 'detail';
+
+  const handleSearchClick = () => {
+    if (inputValue.trim()) {
+      router.push(`/search?query=${encodeURIComponent(inputValue)}`);
+    }
+  };
 
   return (
     <div className={cn('relative w-full', className)}>
@@ -38,6 +46,7 @@ const SearchBar = ({ variant, className, ...props }: SearchInputProps) => {
           'absolute top-1/2 flex -translate-y-1/2 cursor-pointer text-xs',
           isDetail ? 'left-3' : 'right-3'
         )}
+        onClick={handleSearchClick}
       >
         <Icon
           name='SEARCH'
@@ -62,7 +71,7 @@ const SearchBar = ({ variant, className, ...props }: SearchInputProps) => {
       {isDetail && inputValue && (
         <button
           type='button'
-          className='absolute right-3 top-1/2 -translate-y-1/2 text-primary'
+          className='absolute -translate-y-1/2 right-3 top-1/2 text-primary'
           onClick={() => setInputValue('')}
         >
           <Icon name='CLOSE' size={13} />

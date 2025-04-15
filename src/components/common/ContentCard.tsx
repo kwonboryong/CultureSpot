@@ -59,18 +59,18 @@ const ContentCard = ({
     <Card ref={cardRef} className='transition-all duration-300'>
       <CardHeader>
         <Link href={`/events/${id}`}>
-          <div className='group relative overflow-hidden rounded-10'>
+          <div className='relative overflow-hidden group rounded-10'>
             <img
-              src={src || '/assets/logo-icon.svg'}
+              src={src || '/assets/logos/logo-icon.svg'}
               className='aspect-[3/4] w-full rounded-10 transition-transform duration-300 group-hover:scale-110'
               alt='공연 이미지'
             />
             {isRankVisible && (
-              <div className='absolute bottom-0 left-0 h-1/3 w-full rounded-10 bg-gradient-to-t from-black/60 to-transparent'></div>
+              <div className='absolute bottom-0 left-0 w-full h-1/3 rounded-10 bg-gradient-to-t from-black/60 to-transparent'></div>
             )}
             <button
               onClick={onClickLike}
-              className='absolute bottom-2 right-2 text-xl transition-transform hover:scale-110'
+              className='absolute text-xl transition-transform bottom-2 right-2 hover:scale-110'
             >
               {liked ? (
                 <Icon
@@ -105,7 +105,7 @@ const ContentCard = ({
       <CardContent className='h-[140px]'>
         <Link href={`/events/${id}`}>
           <CardTitle className='line-clamp-1'>{title}</CardTitle>
-          <p className='line-clamp-1 text-sm text-text'>{place}</p>
+          <p className='text-sm line-clamp-1 text-text'>{place}</p>
           <p className='line-clamp-1 text-caption text-text-sub'>{date}</p>
         </Link>
       </CardContent>

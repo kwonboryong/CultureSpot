@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import RotatingLogo from '../system/RotatingLogo';
+import RotatingLogo from '@/components/system/RotatingLogo';
 
 const HeaderLogo = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -13,7 +13,7 @@ const HeaderLogo = () => {
     >
       <RotatingLogo isAnimating={isHovering} variant='headerLogo' />
       <img
-        src='/assets/title.svg'
+        src='/assets/logos/title.svg'
         alt='CultureSpot 텍스트 로고'
         className='w-[170px]'
       />

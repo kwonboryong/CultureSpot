@@ -1,12 +1,16 @@
 import { Button } from '@/components/common/button/Button';
 
-const Home = () => {
+const Login = () => {
   return (
     <div className='flex flex-col gap-3'>
-      <Button variant='secondary' children='Google로 로그인' size={'lg'} />
-      <Button variant='kakao' children='카카오로 로그인' size={'lg'} />
+      <Button variant='secondary' size='lg'>
+        Google로 로그인
+      </Button>
+      <Button variant='kakao' size='lg'>
+        카카오로 로그인
+      </Button>
     </div>
   );
 };
 
-export default Home;
+export default Login;

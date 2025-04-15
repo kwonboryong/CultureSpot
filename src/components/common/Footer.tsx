@@ -5,12 +5,12 @@ import { FiMail } from 'react-icons/fi';
 
 const Footer = () => {
   return (
-    <footer className='mt-7 flex h-40 w-full select-none items-center bg-bg-light px-10'>
-      <div className='flex w-full flex-row items-center justify-between'>
+    <footer className='flex items-center w-full h-40 px-10 select-none mt-7 bg-bg-light'>
+      <div className='flex flex-row items-center justify-between w-full'>
         <div>
           <Link href='/' className='flex items-center gap-2'>
             <img
-              src='/assets/logo.svg'
+              src='/assets/logos/logo.svg'
               className='w-40'
               alt='CultureSpot 로고 아이콘'
             />
@@ -23,20 +23,39 @@ const Footer = () => {
             © 2025 Culture Spot. All rights reserved.
           </p>
         </div>
-        <div className='flex gap-4'>
-          <a href='https://github.com/culturespot' target='_blank'>
-            <FaGithub size={25} />
-          </a>
-          <a
-            href='https://chopinoff.atlassian.net/wiki/spaces/CU/pages'
-            target='_blank'
-          >
-            <SiConfluence size={25} />
-          </a>
-          <a href='mailto:culturespot.team@gmail.com'>
-            <FiMail size={26} />
-          </a>
-        </div>
+
+        <nav aria-label='CultureSpot 팀 소셜 미디어 링크'>
+          <ul className='flex gap-4'>
+            <li>
+              <a
+                href='https://github.com/culturespot'
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='CultureSpot 팀 GitHub'
+              >
+                <FaGithub size={25} />
+              </a>
+            </li>
+            <li>
+              <a
+                href='https://chopinoff.atlassian.net/wiki/spaces/CU/pages'
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='CultureSpot 팀 Confluence'
+              >
+                <SiConfluence size={25} />
+              </a>
+            </li>
+            <li>
+              <a
+                href='mailto:culturespot.team@gmail.com'
+                aria-label='CultureSpot 팀 Email'
+              >
+                <FiMail size={26} />
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </footer>
   );

@@ -1,13 +1,9 @@
 'use client';
+import clsx from 'clsx';
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect } from 'react';
 
 type LogoVariant = 'headerLogo' | 'authLogo';
-
-const sizeVariants: Record<LogoVariant, string> = {
-  headerLogo: 'w-8 m-3',
-  authLogo: 'w-44 m-11',
-};
 
 interface RotatingLogoProps {
   isAnimating?: boolean;
@@ -19,7 +15,11 @@ const RotatingLogo = ({
   variant = 'headerLogo',
 }: RotatingLogoProps) => {
   const controls = useAnimation();
-  const sizeClass = sizeVariants[variant];
+
+  const sizeClass = clsx({
+    'w-8 m-3': variant === 'headerLogo',
+    'w-44 m-11': variant === 'authLogo',
+  });
 
   useEffect(() => {
     controls.start(
@@ -42,7 +42,7 @@ const RotatingLogo = ({
 
   return (
     <motion.img
-      src='/assets/logo-icon.svg'
+      src='/assets/logos/logo-icon.svg'
       alt='CultureSpot 로고 아이콘'
       className={sizeClass}
       animate={controls}
