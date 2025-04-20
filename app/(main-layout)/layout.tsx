@@ -4,6 +4,7 @@ import NavigationBar from '@/components/common/navbar/NavigationBar';
 import ModalContainer from '@/components/modal/ModalContainer';
 import { Toaster } from 'react-hot-toast';
 import SessionEffect from '@/components/system/SessionEffect';
+import ScrollToTop from '@/components/common/ScrollToTop';
 
 export const metadata = {
   title: 'My Next.js App',
@@ -16,7 +17,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body>
         <Toaster />
         <SessionEffect />
-        <NavigationBar>{children}</NavigationBar>
+        <NavigationBar>
+          {children}
+          <ScrollToTop />
+        </NavigationBar>
         <ModalContainer />
       </body>
     </html>
