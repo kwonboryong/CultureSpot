@@ -29,9 +29,10 @@ const ScrollToTop = () => {
   return (
     isVisible && (
       <button
-        className='fixed bottom-10 right-5 rounded-full bg-red-300 p-3 text-white shadow-lg transition-all duration-300 hover:bg-gray-700 focus:outline-none'
+        className='fixed bottom-9 right-4 rounded-full bg-primary p-3 text-white shadow-lg transition-all duration-300 hover:bg-primary-hover focus:outline-none'
         onClick={handleScrollToTop}
       >
+        {/*  bg-gray-700 */}
         <MdKeyboardDoubleArrowUp className='text-2xl' />
       </button>
     )
