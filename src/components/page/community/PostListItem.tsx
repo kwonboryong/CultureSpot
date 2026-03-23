@@ -25,49 +25,55 @@ const PostListItem = ({
   return (
     <div className='flex items-center border-b border-divider bg-bg transition last:border-b-0 hover:brightness-[0.98]'>
       {checkbox && <input type='checkbox' className='cursor-pointer' />}
+
       <Link
         href={`/community/${postId}`}
-        className='flex w-full flex-col gap-y-[10px] px-[20px] py-[20px]'
+        className='flex w-full flex-col px-[20px] py-[16px]'
       >
-        <p className='font-semibold truncate'>{title}</p>
-        <p className='overflow-hidden text-ellipsis text-nowrap text-body2 text-text-sub'>
-          {content}
-        </p>
-        <div className='flex items-center justify-between w-full pt-2 text-body2'>
-          <p className='flex items-center gap-x-[6px]'>
-            <Avatar
-              name={String(author.profileCode)}
-              variant='beam'
-              size={20}
-            />
-            <span>{author.username}</span>
-            <span>·</span>
-            <time className='text-text-sub'>{time}</time>
-          </p>
-          <div className='flex items-center gap-x-[10px] text-text-sub'>
-            <div className='flex items-center gap-x-[6px]'>
-              <Icon
-                name='EYE'
-                size={14}
-                className='stroke-text-sub stroke-[2px]'
-              />
-              {hits}
+        <div className='flex items-center'>
+          <div className='flex-1 min-w-0'>
+            <div className='flex items-center min-w-0 gap-x-1'>
+              <p className='font-semibold truncate'>{title}</p>
+              <span className='ml-5 font-medium shrink-0 text-body2'>
+                {author.username}
+              </span>
+              <span className='shrink-0 text-text-sub'>·</span>
+              <time className='shrink-0 text-body2 text-text-sub'>{time}</time>
             </div>
-            <div className='flex items-center gap-x-[6px]'>
-              <Icon
-                name='LIKE'
-                size={14}
-                className='stroke-text-sub stroke-[2px]'
-              />
-              {likeCount}
-            </div>
-            <div className='flex items-center gap-x-[6px]'>
-              <Icon
-                name='COMMENT'
-                size={14}
-                className='stroke-text-sub stroke-[2px]'
-              />
-              {commentCount}
+
+            <div className='mt-[5px] flex items-center justify-between'>
+              <p className='flex-1 min-w-0 overflow-hidden text-ellipsis text-nowrap text-body2 text-text-sub'>
+                {content}
+              </p>
+
+              <div className='flex shrink-0 items-center gap-x-[10px] text-body2 text-text-sub'>
+                <div className='flex items-center gap-x-[4px]'>
+                  <Icon
+                    name='EYE'
+                    size={14}
+                    className='stroke-text-sub stroke-[2px]'
+                  />
+                  <span>{hits}</span>
+                </div>
+
+                <div className='flex items-center gap-x-[4px]'>
+                  <Icon
+                    name='LIKE'
+                    size={14}
+                    className='stroke-text-sub stroke-[2px]'
+                  />
+                  <span>{likeCount}</span>
+                </div>
+
+                <div className='flex items-center gap-x-[4px]'>
+                  <Icon
+                    name='COMMENT'
+                    size={14}
+                    className='stroke-text-sub stroke-[2px]'
+                  />
+                  <span>{commentCount}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
