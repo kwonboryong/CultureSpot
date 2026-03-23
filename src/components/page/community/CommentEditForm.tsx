@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/common/button/Button';
 import Textarea from '@/components/common/Textarea';
