@@ -3,6 +3,7 @@
 import PostListToolbar from '@/components/page/community/PostListToolbar';
 import PostListItem from '@/components/page/community/PostListItem';
 import SearchBar from '@/components/common/SearchBar';
+import { Button } from '@/components/common/button/Button';
 
 // 임시 유저 데이터
 const User = {
@@ -26,7 +27,7 @@ const Page = () => {
         <PostListToolbar postCount={0} />
       </div>
 
-      <div>
+      <main>
         <PostListItem
           postId={0}
           title={'게시글 제목임'}
@@ -57,6 +58,29 @@ const Page = () => {
           commentCount={0}
           createdAt={'123'}
         />
+        <PostListItem
+          postId={0}
+          title={'게시글 제목임'}
+          content={'내용임'}
+          author={User}
+          hits={0}
+          likeCount={0}
+          commentCount={0}
+          createdAt={'123'}
+        />
+        <PostListItem
+          postId={0}
+          title={'게시글 제목임'}
+          content={'내용임'}
+          author={User}
+          hits={0}
+          likeCount={0}
+          commentCount={0}
+          createdAt={'123'}
+        />
+      </main>
+      <div className='flex justify-end mt-5'>
+        <Button>글쓰기</Button>
       </div>
     </div>
   );
