@@ -23,7 +23,7 @@ const PostListToolbar = ({ postCount }: PostListToolbarProps) => {
             fontSize='sm'
             menuItems={[
               { label: '최신순', onClick: () => {} },
-              { label: '댓글많은순', onClick: () => {} },
+              { label: '댓글 많은 순', onClick: () => {} },
               { label: '좋아요순', onClick: () => {} },
               { label: '과거순', onClick: () => {} },
             ]}

@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 
 const dropdownButtonWidths = {
   default: 'w-32',
-  sm: 'w-24',
+  sm: 'w-26',
   lg: 'w-48',
   fit: 'w-fit',
 } as const;
@@ -114,7 +114,7 @@ const Dropdown = ({
           hideButtonPadding && 'p-0'
         )}
       >
-        <div>
+        <div className='select-none'>
           {type === 'select'
             ? (isSelected === menuItems[0].label && buttonText) || isSelected
             : buttonText}

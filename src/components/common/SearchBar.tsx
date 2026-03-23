@@ -12,7 +12,7 @@ const searchBarVariants = cva(
     variants: {
       variant: {
         header: 'bg-bg-light rounded-3xl',
-        community: 'bg-white rounded-5 border border-border',
+        community: 'bg-white rounded-5 border border-border h-8',
         detail: 'bg-primary-main100 rounded-3xl pl-14',
       },
     },
