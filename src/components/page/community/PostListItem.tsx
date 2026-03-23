@@ -26,14 +26,14 @@ const PostListItem = ({
     <div className='flex items-center border-b border-divider bg-bg transition last:border-b-0 hover:brightness-[0.98]'>
       {checkbox && <input type='checkbox' className='cursor-pointer' />}
       <Link
-        href={`/post/${postId}`}
+        href={`/community/${postId}`}
         className='flex w-full flex-col gap-y-[10px] px-[20px] py-[20px]'
       >
-        <p className='truncate font-semibold'>{title}</p>
+        <p className='font-semibold truncate'>{title}</p>
         <p className='overflow-hidden text-ellipsis text-nowrap text-body2 text-text-sub'>
           {content}
         </p>
-        <div className='flex w-full items-center justify-between pt-2 text-body2'>
+        <div className='flex items-center justify-between w-full pt-2 text-body2'>
           <p className='flex items-center gap-x-[6px]'>
             <Avatar
               name={String(author.profileCode)}
